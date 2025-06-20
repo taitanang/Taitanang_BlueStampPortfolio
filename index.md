@@ -57,7 +57,13 @@ After this milestone, I will work on the software portion of the project, utiliz
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
+Figure 1
+
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
+Figure 2
+
+Figure 1: This is a schematic of the Gesture Controlled Robot car.
+Figure 2: This is a schematic of the glove circuits. 
 
 # Code
 <!-- Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. -->

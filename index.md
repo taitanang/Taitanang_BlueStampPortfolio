@@ -219,13 +219,10 @@ SoftwareSerial Bluetooth(2,3);
 
 void setup() {
   Serial.begin(38400);
-  // put your setup code here, to run once:
-  //Serial.println("test");
   Bluetooth.begin(38400);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   if (Serial.available()){
     Bluetooth.write(Serial.read());
   }

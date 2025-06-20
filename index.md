@@ -57,12 +57,9 @@ After this milestone, I will work on the software portion of the project, utiliz
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-Figure 1
+Figure 1: Schematic of the Gesture Controlled Robot car.
 
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
-Figure 2
-
-Figure 1: This is a schematic of the Gesture Controlled Robot car.
 Figure 2: This is a schematic of the glove circuits. 
 
 # Code

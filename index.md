@@ -62,19 +62,153 @@ Figure 1: Schematic of the Gesture Controlled Robot car.
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
 Figure 2: This is a schematic of the glove circuits. 
 
-# Code
+# Milestone 1 Code
 <!-- Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. -->
 
+### Driving code:
 ```c++
+
+int enA = 5;
+int in1 = 6;
+int in2 = 7;
+int in3 = 8;
+int in4 = 9;
+int enB = 10;
+
+void driveforward(){
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 255);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  analogWrite(enB, 255);
+  delay(1000);
+}
+
+void drivebackward(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  analogWrite(enA, 255);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+  analogWrite(enB, 255);
+  delay(1000);
+}
+
+void left(){
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 255);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  delay(1000);
+}
+
+void right(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 255);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  delay(1000);
+}
+
+void stop(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  delay(1000);
+}
+
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(enB, OUTPUT);
+
+}
+
+void loop() {
+  
+  driveforward();
+  stop();
+  drivebackward();
+  stop();
+  //left();
+  //stop();
+  //right();
+  //stop();
+
+}
+```
+
+### Get data from accelerometer:
+```c++
+#include <Wire.h>
+
+const int MPU = 0x68; // MPU6050 I2C address
+float AccX, AccY, AccZ;
+
+void setup() {
+  Wire.begin();
+  Wire.beginTransmission(MPU);
+  Wire.write(0x6B); // PWR_MGMT_1 register
+  Wire.write(0);     // set to zero (wakes up the MPU6050)
+  Wire.endTransmission(true);
+  Serial.begin(9600);
+}
+
+void loop() {
+  Wire.beginTransmission(MPU);
+  Wire.write(0x3B); // Start with register 0x3B (ACCEL_XOUT_H)
+  Wire.endTransmission(false);
+  Wire.requestFrom(MPU, 6, true); // request a total of 6 bytes
+  
+  AccX = (Wire.read() << 8 | Wire.read());
+  AccY = (Wire.read() << 8 | Wire.read());
+  AccZ = (Wire.read() << 8 | Wire.read());
+
+  AccX = map(AccX, -17000, 17000, 0, 180);
+  AccY = map(AccY, -17000, 17000, 0, 180);
+  AccZ = map(AccZ, -17000, 17000, 0, 180);
+
+
+  Serial.print("X: ");
+  Serial.print(AccX);
+  Serial.print("  Y: ");
+  Serial.print(AccY);
+  Serial.print("  Z: ");
+  Serial.println(AccZ);
+  delay(100);
+}
+```
+
+### Set up AT Commands for Bluetooth Modules:
+```c++
+include <SoftwareSerial.h>
+SoftwareSerial Bluetooth(2,3);
+
+void setup() {
+  Serial.begin(38400);
+  // put your setup code here, to run once:
+  //Serial.println("test");
+  Bluetooth.begin(38400);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  if (Serial.available()){
+    Bluetooth.write(Serial.read());
+  }
+  if (Bluetooth.available()){
+    Serial.write(Bluetooth.read());
+  }
+  
 }
 ```
 

@@ -57,7 +57,7 @@ After this milestone, I will work on the software portion of the project, utiliz
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-<!-- Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resources to create professional schematic diagrams, though BSE recommends Tinkercad because it can be done easily and for free in the browser. -->
+![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
 
 # Code
 <!-- Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. -->

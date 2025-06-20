@@ -11,7 +11,7 @@
 |:--:|:--:|:--:|:--:|
 | Tai T | Leigh High School | Mechanical Engineering | Incoming Sophomore
 
-![Headstone Image](TaiT.HEIC)
+![Headstone Image](Screenshot 2025-06-20 at 14.40.58.png)
   
 # Final Milestone
 

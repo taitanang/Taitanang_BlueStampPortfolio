@@ -56,6 +56,7 @@ A challenge I had was pairing the two Bluetooth Modules together, because they w
 After this milestone, I will work on the software portion of the project, utilizing the Bluetooth connection to be able to steer the robot. 
 
 # Schematics 
+![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
 <!-- Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resources to create professional schematic diagrams, though BSE recommends Tinkercad because it can be done easily and for free in the browser. -->
 
 # Code

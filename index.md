@@ -87,8 +87,254 @@ Figure 1: Schematic of the Gesture Controlled Robot car.
 Figure 2: This is a schematic of the glove circuits. 
 
 # Code
+
+## Milestone 2 Code
+
+### Glove code:
+```c++
+#include <Wire.h>
+#include <SoftwareSerial.h>
+SoftwareSerial Bluetooth(2,3);
+
+const int MPU = 0x68; // MPU6050 I2C address
+float AccX, AccY, AccZ;
+
+void read(){
+  Wire.beginTransmission(MPU);
+  Wire.write(0x3B); // Start with register 0x3B (ACCEL_XOUT_H)
+  Wire.endTransmission(false);
+  Wire.requestFrom(MPU, 6, true); // request a total of 6 bytes
+  
+  AccX = (Wire.read() << 8 | Wire.read());
+  AccY = (Wire.read() << 8 | Wire.read());
+  AccZ = (Wire.read() << 8 | Wire.read());
+
+  AccX = map(AccX, -17000, 17000, 0, 180);
+  AccY = map(AccY, -17000, 17000, 0, 180);
+  AccZ = map(AccZ, -17000, 17000, 0, 180);
+
+
+  Serial.print("X: ");
+  Serial.print(AccX);
+  Serial.print("  Y: ");
+  Serial.print(AccY);
+  Serial.print("  Z: ");
+  Serial.println(AccZ);
+  delay(100);
+}
+
+void setup() {
+  Wire.begin();
+  Wire.beginTransmission(MPU);
+  Wire.write(0x6B); 
+  Wire.write(0);     // set to zero (wakes up the MPU6050)
+  Wire.endTransmission(true);
+  Serial.begin(9600);
+  Bluetooth.begin(9600);
+}
+
+void loop() {
+  read();
+  if(0 < AccX && AccX <= 20){
+    Bluetooth.write("B");
+    delay(100);
+  }
+  else if(20 < AccX && AccX <= 40){
+    Bluetooth.write("b");
+    delay(100);
+  }
+  else if(40 < AccX && AccX <= 60){
+    Bluetooth.write("v");
+    delay(100);
+  }
+  else if (180 > AccX && AccX >= 160){
+    Bluetooth.write("F");
+    delay(100);
+  }
+  else if (160 > AccX && AccX >= 140){
+    Bluetooth.write("f");
+    delay(100);
+  }
+  else if (140 > AccX && AccX >= 120){
+    Bluetooth.write("d");
+    delay(100);
+  } 
+  else if (0 < AccY && AccY <= 20){
+    Bluetooth.write("R");
+    delay(100);
+  } 
+  else if (20 < AccY && AccY <= 40){
+    Bluetooth.write("r");
+    delay(100);
+  } 
+  else if (40 < AccY && AccY <= 60){
+    Bluetooth.write("e");
+    delay(100);
+  } 
+  else if (180 > AccY && AccY >= 160){
+    Bluetooth.write("L");
+    delay(100);
+  } 
+  else if (160 > AccY && AccY >= 140){
+    Bluetooth.write("l");
+    delay(100);
+  } 
+  else if (140 > AccY && AccY >= 120){
+    Bluetooth.write("k");
+    delay(100);
+  } 
+  else if (60 < AccX && AccX < 120 && 60 < AccY && AccY < 120){
+    Bluetooth.write("S");
+    delay(100);
+  }
+}
+
+// Speeds:    Low   | Medium |  High  
+// Forward:    d    |    f   |    F
+// Backward:   v    |    b   |    B
+// Right:      e    |    r   |    R
+// Left:       k    |    l   |    L
+
+```
+### Driving code:
+```c++
+#include <SoftwareSerial.h>
+SoftwareSerial Bluetooth(12,13);
+char data;
+int speed = 255;
+
+int enA = 5;
+int in1 = 6;
+int in2 = 7;
+int in3 = 8;
+int in4 = 9;
+int enB = 10;
+
+void forward(){
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, speed);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  analogWrite(enB, speed);
+  delay(100);
+}
+
+void backward(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  analogWrite(enA, speed);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+  analogWrite(enB, speed);
+  delay(100);
+}
+
+void left(){
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, speed);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  delay(100);
+}
+
+void right(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  analogWrite(enB, speed);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  delay(100);
+}
+
+void stop(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  delay(100);
+}
+
+
+void setup() {
+  Serial.begin(9600);
+  Bluetooth.begin(9600);
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(enB, OUTPUT);
+}
+
+void loop() {
+  if(Bluetooth.available() > 0){
+    data = Bluetooth.read();
+    delay(100);
+    Serial.println(data);
+    if(data == 'F'){
+      forward();
+      speed = 255;
+    }
+    if(data == 'f'){
+      forward();
+      speed = 200;
+    }
+    if(data == 'd'){
+      forward();
+      speed = 150;
+    }
+    if(data == 'B'){
+      backward();
+      speed = 255;
+    }
+    if(data == 'b'){
+      backward();
+      speed = 200;
+    }
+    if(data == 'v'){
+      backward();
+      speed = 150;
+    }
+    if(data == 'R'){
+      right();
+      speed = 255;
+    }
+    if(data == 'r'){
+      right();
+      speed = 200;
+    }
+    if(data == 'e'){
+      right();
+      speed = 150;
+    }
+    if(data == 'L'){
+      left();
+      speed = 255;
+    }
+    if(data == 'l'){
+      left();
+      speed = 200;
+    }
+    if(data == 'k'){
+      left();
+      speed = 150;
+    }
+    if (data == 'S'){
+      stop();
+    }
+  }
+}
+
+// Speeds:    Low   | Medium |  High  
+// Forward:    d    |    f   |    F
+// Backward:   v    |    b   |    B
+// Right:      e    |    r   |    R
+// Left:       k    |    l   |    L
+
+```
 ## Milestone 1 Code
-<!-- Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. -->
 
 ### Driving code:
 ```c++

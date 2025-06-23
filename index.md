@@ -46,7 +46,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ### Description:
 
-Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Code section, Milestone 2, Glove code). Finally, I wrote more code to take those directions and move the motors accordingly (Code section, Milestone 2, Car code). 
+Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Code section, Milestone 2, Glove code). Finally, I wrote more code to take those directions and move the motors accordingly (Code section, Milestone 2, Car code). Refer to Figure 3 for a simplified code diagram.
 
 ### Challenges:
 

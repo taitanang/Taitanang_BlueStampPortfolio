@@ -57,8 +57,8 @@ A challenge I had was getting the Bluetooth modules to send and receive data. In
 I will start working on cleaning up all the wires, making the glove wearable, and adding finishing touches to the robot. 
 
 ![Flowchart](Screenshot 2025-06-23 at 10.16.16.png)
-_Figure 3: Flowchart of code
-_
+Figure 3: Flowchart of code
+
 <!--
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
@@ -84,11 +84,11 @@ After this milestone, I will work on the software portion of the project, utiliz
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-_Figure 1: Schematic of the Gesture Controlled Robot car.
-_
+Figure 1: Schematic of the Gesture Controlled Robot car.
+
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
-_Figure 2: This is a schematic of the glove circuits. 
-_
+Figure 2: This is a schematic of the glove circuits. 
+
 # Code
 
 ## Milestone 2 Code

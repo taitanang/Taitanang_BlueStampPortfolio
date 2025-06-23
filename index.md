@@ -46,15 +46,15 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ### Description:
 
-Text
+Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll, pitch, and yaw and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Code section, Milestone 2, Glove code). Finally, I wrote more code to take those directions and move the motors accordingly (Code section, Milestone 2, Car code). 
 
 ### Challenges:
 
-Text
+A challenge I had was getting the Bluetooth modules to send and receive data. Initially, when I was trying to send the letters from the glove to the car, it would receive the data as ? symbols. I discovered that this was because the baud rates weren't matched, which meant that one Bluetooth module was sending data faster than the other could receive it, resulting in the data getting jumbled. After fixing the problem with the code, it was able to work. 
 
 ### Next Steps:
 
-Text
+I will start working on cleaning up all the wires, making the glove wearable, and adding finishing touches to the robot. 
 
 <!--
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:

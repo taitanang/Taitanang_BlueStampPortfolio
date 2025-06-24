@@ -55,7 +55,7 @@ A challenge I had was getting the Bluetooth modules to send and receive data. In
 I will start working on cleaning up all the wires, making the glove wearable, and adding finishing touches to the robot. 
 
 ![Flowchart](Screenshot 2025-06-23 at 10.16.16.png)
-Figure 3: Flowchart of movement code
+Figure 3: Flowchart of the robot's movement code
 
 <!--
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:

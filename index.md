@@ -93,29 +93,29 @@ Figure 2: This is a schematic of the glove circuits.
 
 ### Glove code:
 ```c++
-#include <Wire.h>
-#include <SoftwareSerial.h>
-SoftwareSerial Bluetooth(2,3);
+#include <Wire.h> //including a library to gret data from accelerometer
+#include <SoftwareSerial.h> //including a library for bluetooth communciation
+SoftwareSerial Bluetooth(2,3); //sets the bluetooth pins to 2 and 3 on the nano
 
 const int MPU = 0x68; // MPU6050 I2C address
-float AccX, AccY, AccZ;
+float AccX, AccY, AccZ; //variables for accelerometer data
 
 void read(){
-  Wire.beginTransmission(MPU);
-  Wire.write(0x3B); // Start with register 0x3B (ACCEL_XOUT_H)
-  Wire.endTransmission(false);
+  Wire.beginTransmission(MPU); //starts transmission to the accelerometer
+  Wire.write(0x3B); //tells where to start reading from
+  Wire.endTransmission(false); //doesn't stop
   Wire.requestFrom(MPU, 6, true); // request a total of 6 bytes
-  
-  AccX = (Wire.read() << 8 | Wire.read());
-  AccY = (Wire.read() << 8 | Wire.read());
+
+  AccX = (Wire.read() << 8 | Wire.read()); //combines two bytes from each axis 
+  AccY = (Wire.read() << 8 | Wire.read()); //to get x, y, and z data
   AccZ = (Wire.read() << 8 | Wire.read());
 
-  AccX = map(AccX, -17000, 17000, 0, 180);
-  AccY = map(AccY, -17000, 17000, 0, 180);
+  AccX = map(AccX, -17000, 17000, 0, 180); //maps the data (originally from around 
+  AccY = map(AccY, -17000, 17000, 0, 180); // -17000 to 17000) to 0 to 180.
   AccZ = map(AccZ, -17000, 17000, 0, 180);
 
 
-  Serial.print("X: ");
+  Serial.print("X: "); //prints data for easy monitoring
   Serial.print(AccX);
   Serial.print("  Y: ");
   Serial.print(AccY);
@@ -124,20 +124,20 @@ void read(){
   delay(100);
 }
 
-void setup() {
-  Wire.begin();
-  Wire.beginTransmission(MPU);
-  Wire.write(0x6B); 
-  Wire.write(0);     // set to zero (wakes up the MPU6050)
-  Wire.endTransmission(true);
-  Serial.begin(9600);
-  Bluetooth.begin(9600);
+void setup() { //setup code
+  Wire.begin(); //starts the accelerometer
+  Wire.beginTransmission(MPU); //starts a transmission to the
+  Wire.write(0x6B); //0x6b register (which is responsible for power)
+  Wire.write(0); // set to zero (wakes it up)
+  Wire.endTransmission(true); //ends the transmission
+  Serial.begin(9600); //starts serial
+  Bluetooth.begin(9600); //starts bluetooth
 }
 
 void loop() {
-  read();
-  if(0 < AccX && AccX <= 20){
-    Bluetooth.write("B");
+  read(); //calls read function
+  if(0 < AccX && AccX <= 20){ //depending on what position the accelerometer is in,
+    Bluetooth.write("B");     //sends different letters to the car as instructions
     delay(100);
   }
   else if(20 < AccX && AccX <= 40){
@@ -195,23 +195,22 @@ void loop() {
 // Backward:   v    |    b   |    B
 // Right:      e    |    r   |    R
 // Left:       k    |    l   |    L
-
 ```
 ### Driving code:
 ```c++
-#include <SoftwareSerial.h>
-SoftwareSerial Bluetooth(12,13);
-char data;
-int speed = 255;
+#include <SoftwareSerial.h> //gets the bluetooth library
+SoftwareSerial Bluetooth(12,13); // sets the bluetooth module's pins to 12 and 13 on the uno
+char data; //variable to store accelerometer's data
+int speed = 255; //starting speed, can change
 
-int enA = 5;
+int enA = 5; //sets pins from the motor driver to 5-10 on the uno
 int in1 = 6;
 int in2 = 7;
 int in3 = 8;
 int in4 = 9;
 int enB = 10;
 
-void forward(){
+void forward(){ //function to drive forward
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   analogWrite(enA, speed);
@@ -221,7 +220,7 @@ void forward(){
   delay(100);
 }
 
-void backward(){
+void backward(){ //function to drive backward
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   analogWrite(enA, speed);
@@ -231,25 +230,25 @@ void backward(){
   delay(100);
 }
 
-void left(){
+void left(){ //function to drive left
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   analogWrite(enA, speed);
-  digitalWrite(in3, LOW);
+  digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
   delay(100);
 }
 
-void right(){
+void right(){ //function to drive right
   digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
+  digitalWrite(in2, HIGH);
   analogWrite(enB, speed);
   digitalWrite(in3, LOW);
   digitalWrite(in4, HIGH);
   delay(100);
 }
 
-void stop(){
+void stop(){ //function to stop the robot
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -258,10 +257,10 @@ void stop(){
 }
 
 
-void setup() {
-  Serial.begin(9600);
-  Bluetooth.begin(9600);
-  pinMode(enA, OUTPUT);
+void setup() { //setup code, runs once
+  Serial.begin(9600); //starts the serial monitor
+  Bluetooth.begin(9600); //starts the bluetooth
+  pinMode(enA, OUTPUT); //sets all the motor driver's pins to outputs.
   pinMode(in1, OUTPUT);
   pinMode(in2, OUTPUT);
   pinMode(in3, OUTPUT);
@@ -269,12 +268,12 @@ void setup() {
   pinMode(enB, OUTPUT);
 }
 
-void loop() {
-  if(Bluetooth.available() > 0){
-    data = Bluetooth.read();
-    delay(100);
-    Serial.println(data);
-    if(data == 'F'){
+void loop() { //will run forever
+  if(Bluetooth.available() > 0){ //runs if the bluetooth is connected
+    data = Bluetooth.read(); //reads data from the acceleromter, stores it in the data var.
+    delay(100); //keeps it from doing things too fast
+    Serial.println(data); //prints data for easy montitoring
+    if(data == 'F'){ //takes data from the accelerometer and turns it into speed and directions
       forward();
       speed = 255;
     }

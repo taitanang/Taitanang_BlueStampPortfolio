@@ -40,8 +40,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ![First draft UNO CAD Model](image0.jpeg)
 Figure 4: First draft of the Arduino Uno CAD Model
+
 ![UNO CAD Model](Screenshot 2025-06-25 at 2.39.20 PM.jpeg)
-Figure 5: Final CAD model of the Arduino Uno case:
+Figure 5: Final CAD model of the Arduino Uno case
+
 Iterations:
  - lowered wall for easier access
  - widened holes from 2.5mm to 2.7mm to fit the M3 screws better

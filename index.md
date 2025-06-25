@@ -25,11 +25,11 @@ Text
 
 ### Challenges:
 
-One time, I was testing the motors, and half of them wouldn't turn forward, but they were able to turn backward. I tested multiple possible ways this could have happened, including the code, wiring, solder connections, and even replacing the motor driver. However, the solution was to rotate the motor driver 180 degrees and plug the motor wires into the opposite ports. 
+One challenge I faced during this milestone was that two of the motors weren't working properly. They wouldn't turn forward, but they were able to turn backward. I tested multiple possible ways this could have happened, including the code, wiring, solder connections, and even replacing the motor driver. However, the solution was to rotate the motor driver 180 degrees and plug the motor wires into the opposite ports. 
 
 ### Next steps:
 
-Text
+This milestone means that I have finished the base project, and I will now start implementing some modifications. I will CAD a case to hide all of the wires and make the car look real, and try to add a few sensors to detect objects in its path. 
 
 <!--
 For your final milestone, explain the outcome of your project. Key details to include are:

@@ -50,7 +50,7 @@ Iterations:
  - widened holes from 2.5mm to 2.7mm to fit the M3 screws better
  - increased fillet size for stronger connections
 ![L298N Motor Driver CAD Model](Screenshot 2025-06-25 at 2.39.52 PM.jpeg)
-![L298N Motor Driver CAD Drawing(Screenshot 2025-06-25 at 3.49.13 PM.jpeg)
+![L298N Motor Driver CAD Drawing](Screenshot 2025-06-25 at 3.49.13 PM.jpeg)
 Figure 6: CAD model of the L298N Motor Driver and design drawing
 
 # Second Milestone

@@ -25,7 +25,7 @@ Text
 
 ### Challenges:
 
-Text
+One time, I was testing the motors, and half of them wouldn't turn forward, but they were able to turn backward. I tested multiple possible ways this could have happened, including the code, wiring, solder connections, and even replacing the motor driver. However, the solution was to rotate the motor driver 180 degrees and plug the motor wires into the opposite ports. 
 
 ### Next steps:
 
@@ -40,8 +40,8 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ![UNO CAD Model](Screenshot 2025-06-25 at 2.39.20 PM.jpeg)
 Figure 4: CAD model of the Arduino case
-
-
+![L298N Motor Driver CAD Model](Screenshot 2025-06-25 at 2.39.52 PM.jpeg)
+Figure 5: CAD model of the L298N Motor Driver
 
 # Second Milestone
 

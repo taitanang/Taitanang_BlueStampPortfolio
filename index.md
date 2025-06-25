@@ -38,10 +38,16 @@ For your final milestone, explain the outcome of your project. Key details to in
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE -->
 
+![First draft UNO CAD Model](image0.jpeg)
+Figure 4: First draft of the Arduino Uno CAD Model
 ![UNO CAD Model](Screenshot 2025-06-25 at 2.39.20 PM.jpeg)
-Figure 4: CAD model of the Arduino case
+Figure 5: Final CAD model of the Arduino Uno case:
+Iterations:
+ - lowered wall for easier access
+ - widened holes from 2.5mm to 2.7mm to fit the M3 screws better
+ - increased fillet size for stronger connections
 ![L298N Motor Driver CAD Model](Screenshot 2025-06-25 at 2.39.52 PM.jpeg)
-Figure 5: CAD model of the L298N Motor Driver
+Figure 6: CAD model of the L298N Motor Driver
 
 # Second Milestone
 

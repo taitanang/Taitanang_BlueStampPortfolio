@@ -103,24 +103,55 @@ Figure 1: Schematic of the Gesture Controlled Robot car.
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
 Figure 2: This is a schematic of the glove circuits. 
 
-# Code
+# Bill of Materials
+<!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
+Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. -->
+
+| **Part** | **Note** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+
+# Other Resources/Examples
+<!-- One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
+- [Arduino to Motor Driver](https://www.youtube.com/watch?v=Ey4xoG970Go)
+- [Bluetooth Setup](https://www.youtube.com/watch?v=I2qFXSe0W3w)
+- [Example 3](https://arneshkumar.github.io/arneshbluestamp/) -->
+
+# Starter Milestone
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UMIgmopNEKk?si=oT5W1rL70Gnku_Bd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Description:
+
+My starter project was the Weevil Eye. I chose this project because it made me work on my soldering skills, and I got something cool to take home as well. The function of the Weevil Eye is that when it senses that it is dark, two LED 'eyes' turn on, and when there is light, it turns off.
+
+### Challenges:
+
+I faced numerous challenges while soldering to complete this project. It was my first day soldering, so my technique wasn't the best, resulting in the Weevil Eye not functioning properly. After a bit more practice soldering, I restarted with a new Weevil Eye, and that time it worked as intended. 
+
+### Next steps:
+
+The primary purpose of this project was for me to learn soldering, and it was successful. If I need to solder for my intensive project, I will know how to do it. 
+
+# Appendix
 
 ## Milestone 2 Code
 
 ### Glove code:
 ```c++
-#include <Wire.h> //including a library to gret data from accelerometer
-#include <SoftwareSerial.h> //including a library for bluetooth communciation
-SoftwareSerial Bluetooth(2,3); //sets the bluetooth pins to 2 and 3 on the nano
+#include <Wire.h>                          //including a library to get data from accelerometer
+#include <SoftwareSerial.h>                //including a library for bluetooth communciation
+SoftwareSerial Bluetooth(2,3);             //sets the bluetooth pins to 2 and 3 on the nano
 
-const int MPU = 0x68; // MPU6050 I2C address
-float AccX, AccY, AccZ; //variables for accelerometer data
+const int MPU = 0x68;                      // MPU6050 I2C address
+float AccX, AccY, AccZ;                    //variables for accelerometer data
 
 void read(){
-  Wire.beginTransmission(MPU); //starts transmission to the accelerometer
-  Wire.write(0x3B); //tells where to start reading from
-  Wire.endTransmission(false); //doesn't stop
-  Wire.requestFrom(MPU, 6, true); // request a total of 6 bytes
+  Wire.beginTransmission(MPU);             //starts transmission to the accelerometer
+  Wire.write(0x3B);                        //tells where to start reading from
+  Wire.endTransmission(false);             //doesn't stop
+  Wire.requestFrom(MPU, 6, true);          // request a total of 6 bytes
 
   AccX = (Wire.read() << 8 | Wire.read()); //combines two bytes from each axis 
   AccY = (Wire.read() << 8 | Wire.read()); //to get x, y, and z data
@@ -131,7 +162,7 @@ void read(){
   AccZ = map(AccZ, -17000, 17000, 0, 180);
 
 
-  Serial.print("X: "); //prints data for easy monitoring
+  Serial.print("X: ");                      //prints data for easy monitoring
   Serial.print(AccX);
   Serial.print("  Y: ");
   Serial.print(AccY);
@@ -211,6 +242,7 @@ void loop() {
 // Backward:   v    |    b   |    B
 // Right:      e    |    r   |    R
 // Left:       k    |    l   |    L
+
 
 ```
 ### Driving code:
@@ -356,24 +388,24 @@ void loop() {                             //will run forever
 ### Driving code:
 ```c++
 
-int enA = 5;
+int enA = 5;                  // Sets motor driver pins to 5-10 on the Uno
 int in1 = 6;
 int in2 = 7;
 int in3 = 8;
 int in4 = 9;
 int enB = 10;
 
-void driveforward(){
+void driveforward(){          // Function to drive forward
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
-  analogWrite(enA, 255);
+ analogWrite(enA, 255);
   digitalWrite(in3, LOW);
   digitalWrite(in4, HIGH);
   analogWrite(enB, 255);
   delay(1000);
 }
 
-void drivebackward(){
+void drivebackward(){          // Function to drive backward
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   analogWrite(enA, 255);
@@ -383,7 +415,7 @@ void drivebackward(){
   delay(1000);
 }
 
-void left(){
+void left(){                    // Function to drive left
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   analogWrite(enA, 255);
@@ -392,7 +424,7 @@ void left(){
   delay(1000);
 }
 
-void right(){
+void right(){                   // Function to drive right
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   analogWrite(enA, 255);
@@ -401,7 +433,7 @@ void right(){
   delay(1000);
 }
 
-void stop(){
+void stop(){                    // Function to stop
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -410,9 +442,9 @@ void stop(){
 }
 
 
-void setup() {
-  Serial.begin(9600);
-  pinMode(enA, OUTPUT);
+void setup() {                   //Setup code, runs once
+  Serial.begin(9600);            //Starts serial monitor
+  pinMode(enA, OUTPUT);          //Sets motor driver pins to outputs
   pinMode(in1, OUTPUT);
   pinMode(in2, OUTPUT);
   pinMode(in3, OUTPUT);
@@ -421,52 +453,47 @@ void setup() {
 
 }
 
-void loop() {
-  
-  driveforward();
-  stop();
-  drivebackward();
-  stop();
-  //left();
-  //stop();
-  //right();
-  //stop();
-
+void loop(){                     // Code runs in a loop forever
+  driveforward();                // Makes wheels run forward,
+  stop();                        // then stop,
+  drivebackward();               // backward,
+  stop();                        // and stop again, then repeats
 }
+
 ```
 
 ### Get data from accelerometer:
 ```c++
-#include <Wire.h>
+#include <Wire.h>                             //including a library to get data from accelerometer
 
-const int MPU = 0x68; // MPU6050 I2C address
+const int MPU = 0x68;                         // MPU6050 I2C address
 float AccX, AccY, AccZ;
 
-void setup() {
-  Wire.begin();
-  Wire.beginTransmission(MPU);
-  Wire.write(0x6B); // PWR_MGMT_1 register
-  Wire.write(0);     // set to zero (wakes up the MPU6050)
-  Wire.endTransmission(true);
-  Serial.begin(9600);
+void setup() {                                //setup code
+  Wire.begin();                               //starts the accelerometer
+  Wire.beginTransmission(MPU);                //starts a transmission to the
+  Wire.write(0x6B);                           //0x6b register (which is responsible for power)
+  Wire.write(0);                              // set to zero (wakes it up)
+  Wire.endTransmission(true);                 //ends the transmission
+  Serial.begin(9600);                         //starts serial
 }
 
 void loop() {
-  Wire.beginTransmission(MPU);
-  Wire.write(0x3B); // Start with register 0x3B (ACCEL_XOUT_H)
-  Wire.endTransmission(false);
-  Wire.requestFrom(MPU, 6, true); // request a total of 6 bytes
+  Wire.beginTransmission(MPU);                //starts transmission to the accelerometer
+  Wire.write(0x3B);                           //tells where to start reading from
+  Wire.endTransmission(false);                //doesn't stop
+  Wire.requestFrom(MPU, 6, true);             // request a total of 6 bytes
   
-  AccX = (Wire.read() << 8 | Wire.read());
-  AccY = (Wire.read() << 8 | Wire.read());
+  AccX = (Wire.read() << 8 | Wire.read());    //combines two bytes from each axis 
+  AccY = (Wire.read() << 8 | Wire.read());    //to get x, y, and z data
   AccZ = (Wire.read() << 8 | Wire.read());
 
-  AccX = map(AccX, -17000, 17000, 0, 180);
-  AccY = map(AccY, -17000, 17000, 0, 180);
+  AccX = map(AccX, -17000, 17000, 0, 180);    //maps the data (originally from around 
+  AccY = map(AccY, -17000, 17000, 0, 180);    // -17000 to 17000) to 0 to 180.
   AccZ = map(AccZ, -17000, 17000, 0, 180);
 
 
-  Serial.print("X: ");
+  Serial.print("X: ");                        //prints data for easy monitoring
   Serial.print(AccX);
   Serial.print("  Y: ");
   Serial.print(AccY);
@@ -478,52 +505,22 @@ void loop() {
 
 ### Set up AT Commands for Bluetooth Modules:
 ```c++
-include <SoftwareSerial.h>
-SoftwareSerial Bluetooth(2,3);
+#include <SoftwareSerial.h>           //Imports bluetooth library
+SoftwareSerial Bluetooth(2,3);        // Sets bluetooth module's pins to 2 and 3 on the nano
 
-void setup() {
-  Serial.begin(38400);
-  Bluetooth.begin(38400);
+void setup() {                        //Setup code, runs once
+  Serial.begin(38400);                //Starts serial
+  Bluetooth.begin(38400);             //starts bluetooth
 }
 
-void loop() {
-  if (Serial.available()){
-    Bluetooth.write(Serial.read());
-  }
-  if (Bluetooth.available()){
+void loop() {                         //Loop code, runs forever
+  if (Serial.available()){            //The two if statements allow AT commands to be
+    Bluetooth.write(Serial.read());   //typed from the serial monitor to the bluetooth
+  }                                   //to set it up as either a slave or master and bind
+  if (Bluetooth.available()){         //it to the other module
     Serial.write(Bluetooth.read());
   }
-  
 }
+
 ```
 
-# Bill of Materials
-<!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. -->
-
-| **Part** | **Note** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-
-# Other Resources/Examples
-<!-- One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Arduino to Motor Driver](https://www.youtube.com/watch?v=Ey4xoG970Go)
-- [Bluetooth Setup](https://www.youtube.com/watch?v=I2qFXSe0W3w)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/) -->
-
-# Starter Milestone
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UMIgmopNEKk?si=oT5W1rL70Gnku_Bd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-### Description:
-
-My starter project was the Weevil Eye. I chose this project because it made me work on my soldering skills, and I got something cool to take home as well. The function of the Weevil Eye is that when it senses that it is dark, two LED 'eyes' turn on, and when there is light, it turns off.
-
-### Challenges:
-
-I faced numerous challenges while soldering to complete this project. It was my first day soldering, so my technique wasn't the best, resulting in the Weevil Eye not functioning properly. After a bit more practice soldering, I restarted with a new Weevil Eye, and that time it worked as intended. 
-
-### Next steps:
-
-The primary purpose of this project was for me to learn soldering, and it was successful. If I need to solder for my intensive project, I will know how to do it. 

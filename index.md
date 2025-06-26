@@ -140,68 +140,68 @@ void read(){
   delay(100);
 }
 
-void setup() { //setup code
-  Wire.begin(); //starts the accelerometer
-  Wire.beginTransmission(MPU); //starts a transmission to the
-  Wire.write(0x6B); //0x6b register (which is responsible for power)
-  Wire.write(0); // set to zero (wakes it up)
-  Wire.endTransmission(true); //ends the transmission
-  Serial.begin(9600); //starts serial
-  Bluetooth.begin(9600); //starts bluetooth
+void setup() {                                //setup code
+  Wire.begin();                               //starts the accelerometer
+  Wire.beginTransmission(MPU);                //starts a transmission to the
+  Wire.write(0x6B);                           //0x6b register (which is responsible for power)
+  Wire.write(0);                              // set to zero (wakes it up)
+  Wire.endTransmission(true);                 //ends the transmission
+  Serial.begin(9600);                         //starts serial
+  Bluetooth.begin(9600);                      //starts bluetooth
 }
 
 void loop() {
-  read(); //calls read function
-  if(0 < AccX && AccX <= 20){ //depending on what position the accelerometer is in,
-    Bluetooth.write("B");     //sends different letters to the car as instructions
+  read();                                     //calls read function
+  if(0 < AccX && AccX <= 20){                 //If X is between 0 and 20, which is high tilt backward,
+    Bluetooth.write("B");                     //sends 'B' to the car
     delay(100);
   }
-  else if(20 < AccX && AccX <= 40){
-    Bluetooth.write("b");
+  else if(20 < AccX && AccX <= 40){           //If X is between 20 and 40, which is medium tilt backward,
+    Bluetooth.write("b");                     //sends 'b' to the car
     delay(100);
   }
-  else if(40 < AccX && AccX <= 60){
-    Bluetooth.write("v");
+  else if(40 < AccX && AccX <= 60){           //If X is between 40 and 60, which is low tilt backward,
+    Bluetooth.write("v");                     //sends 'v' to the car
     delay(100);
   }
-  else if (180 > AccX && AccX >= 160){
-    Bluetooth.write("F");
+  else if (180 > AccX && AccX >= 160){        //If X is between 180 and 160, which is high tilt forward,
+    Bluetooth.write("F");                     //sends 'F' to the car
     delay(100);
   }
-  else if (160 > AccX && AccX >= 140){
-    Bluetooth.write("f");
+  else if (160 > AccX && AccX >= 140){        //If X is between 160 and 140, which is medium tilt forward,
+    Bluetooth.write("f");                     //sends 'f' to the car
     delay(100);
   }
-  else if (140 > AccX && AccX >= 120){
-    Bluetooth.write("d");
+  else if (140 > AccX && AccX >= 120){        //If X is between 140 and 120, which is low tilt forward,
+    Bluetooth.write("d");                     //sends 'd' to the car
     delay(100);
   } 
-  else if (0 < AccY && AccY <= 20){
-    Bluetooth.write("R");
+  else if (0 < AccY && AccY <= 20){           //If Y is between 0 and 20, which is high tilt right,
+    Bluetooth.write("R");                     //sends 'R' to the car
     delay(100);
   } 
-  else if (20 < AccY && AccY <= 40){
-    Bluetooth.write("r");
+  else if (20 < AccY && AccY <= 40){          //If Y is between 20 and 40, which is medium tilt right,
+    Bluetooth.write("r");                     //sends 'r' to the car
     delay(100);
   } 
-  else if (40 < AccY && AccY <= 60){
-    Bluetooth.write("e");
+  else if (40 < AccY && AccY <= 60){          //If Y is between 40 and 60, which is low tilt right,
+    Bluetooth.write("e");                     //sends 'e' to the car
     delay(100);
   } 
-  else if (180 > AccY && AccY >= 160){
-    Bluetooth.write("L");
+  else if (180 > AccY && AccY >= 160){        //If Y is between 180 and 160, which is high tilt left,
+    Bluetooth.write("L");                     //sends 'L' to the car
     delay(100);
   } 
-  else if (160 > AccY && AccY >= 140){
-    Bluetooth.write("l");
+  else if (160 > AccY && AccY >= 140){        //If Y is between 160 and 140, which is medium tilt right,
+    Bluetooth.write("l");                     //sends 'l' to the car
     delay(100);
   } 
-  else if (140 > AccY && AccY >= 120){
-    Bluetooth.write("k");
+  else if (140 > AccY && AccY >= 120){        //If Y is between 140 and 120, which is low tilt right,
+    Bluetooth.write("k");                     //sends 'k' to the car
     delay(100);
   } 
-  else if (60 < AccX && AccX < 120 && 60 < AccY && AccY < 120){
-    Bluetooth.write("S");
+  else if (60 < AccX && AccX < 120 && 60 < AccY && AccY < 120){ //If both x and y are in neutral position,
+    Bluetooth.write("S");                                       //Sends 'S' to the car
     delay(100);
   }
 }
@@ -211,22 +211,23 @@ void loop() {
 // Backward:   v    |    b   |    B
 // Right:      e    |    r   |    R
 // Left:       k    |    l   |    L
+
 ```
 ### Driving code:
 ```c++
-#include <SoftwareSerial.h> //gets the bluetooth library
-SoftwareSerial Bluetooth(12,13); // sets the bluetooth module's pins to 12 and 13 on the uno
-char data; //variable to store accelerometer's data
-int speed = 255; //starting speed, can change
+#include <SoftwareSerial.h>             //gets the bluetooth library
+SoftwareSerial Bluetooth(12,13);        // sets the bluetooth module's pins to 12 and 13 on the uno
+char data;                              //variable to store accelerometer's data
+int speed = 255;                        //starting speed, can change
 
-int enA = 5; //sets pins from the motor driver to 5-10 on the uno
+int enA = 5;                            //sets pins from the motor driver to 5-10 on the uno
 int in1 = 6;
 int in2 = 7;
 int in3 = 8;
 int in4 = 9;
 int enB = 10;
 
-void forward(){ //function to drive forward
+void forward(){                         //function to drive forward
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   analogWrite(enA, speed);
@@ -236,7 +237,7 @@ void forward(){ //function to drive forward
   delay(100);
 }
 
-void backward(){ //function to drive backward
+void backward(){                         //function to drive backward
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   analogWrite(enA, speed);
@@ -246,7 +247,7 @@ void backward(){ //function to drive backward
   delay(100);
 }
 
-void left(){ //function to drive left
+void left(){                              //function to drive left
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   analogWrite(enA, speed);
@@ -255,7 +256,7 @@ void left(){ //function to drive left
   delay(100);
 }
 
-void right(){ //function to drive right
+void right(){                             //function to drive right
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   analogWrite(enB, speed);
@@ -264,7 +265,7 @@ void right(){ //function to drive right
   delay(100);
 }
 
-void stop(){ //function to stop the robot
+void stop(){                              //function to stop the robot
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -273,10 +274,10 @@ void stop(){ //function to stop the robot
 }
 
 
-void setup() { //setup code, runs once
-  Serial.begin(9600); //starts the serial monitor
-  Bluetooth.begin(9600); //starts the bluetooth
-  pinMode(enA, OUTPUT); //sets all the motor driver's pins to outputs.
+void setup() {                            //setup code, runs once
+  Serial.begin(9600);                     //starts the serial monitor
+  Bluetooth.begin(9600);                  //starts the bluetooth
+  pinMode(enA, OUTPUT);                   //sets all the motor driver's pins to outputs.
   pinMode(in1, OUTPUT);
   pinMode(in2, OUTPUT);
   pinMode(in3, OUTPUT);
@@ -284,61 +285,61 @@ void setup() { //setup code, runs once
   pinMode(enB, OUTPUT);
 }
 
-void loop() { //will run forever
-  if(Bluetooth.available() > 0){ //runs if the bluetooth is connected
-    data = Bluetooth.read(); //reads data from the acceleromter, stores it in the data var.
-    delay(100); //keeps it from doing things too fast
-    Serial.println(data); //prints data for easy montitoring
-    if(data == 'F'){ //takes data from the accelerometer and turns it into speed and directions
-      forward();
-      speed = 255;
+void loop() {                             //will run forever
+  if(Bluetooth.available() > 0){          //runs if the bluetooth is connected
+    data = Bluetooth.read();              //reads data from the acceleromter, stores it in the data var.
+    delay(100);                           //keeps it from doing things too fast
+    Serial.println(data);                 //prints data for easy montitoring
+    if(data == 'F'){                      //'F' makes it go forward full speed
+      forward();                          //Calls forward function
+      speed = 255;                        //Sets speed to high
     }
-    if(data == 'f'){
-      forward();
-      speed = 200;
+    if(data == 'f'){                      //'f' makes it go forward medium speed
+      forward();                          //Calls forward function
+      speed = 200;                        //Sets speed to medium
     }
-    if(data == 'd'){
-      forward();
-      speed = 150;
+    if(data == 'd'){                      //'d' makes it go forward low speed
+      forward();                          //Calls forward function
+      speed = 150;                        //Sets speed to low
     }
-    if(data == 'B'){
-      backward();
-      speed = 255;
+    if(data == 'B'){                      //'B' makes it go backward full speed
+      backward();                         //Calls backward function
+      speed = 255;                        //Sets speed to high
     }
-    if(data == 'b'){
-      backward();
-      speed = 200;
+    if(data == 'b'){                      //'b' makes it go backward medium speed
+      backward();                         //Calls backward function
+      speed = 200;                        //Sets speed to medium
     }
-    if(data == 'v'){
-      backward();
-      speed = 150;
+    if(data == 'v'){                      //'v' makes it go backward low speed
+      backward();                         //Calls backward function
+      speed = 150;                        //Sets speed to low
     }
-    if(data == 'R'){
-      right();
-      speed = 255;
+    if(data == 'R'){                      //'R' makes it go right full speed
+      right();                            //Calls right function
+      speed = 255;                        //Sets speed to high
     }
-    if(data == 'r'){
-      right();
-      speed = 200;
+    if(data == 'r'){                      //'r' makes it go right medium speed
+      right();                            //Calls right function
+      speed = 200;                        //Sets speed to medium
     }
-    if(data == 'e'){
-      right();
-      speed = 150;
+    if(data == 'e'){                      //'e' makes it go right low speed
+      right();                            //Calls right function
+      speed = 150;                        //Sets speed to low
     }
-    if(data == 'L'){
-      left();
-      speed = 255;
+    if(data == 'L'){                      //'L' makes it go left full speed
+      left();                             //Calls right function
+      speed = 255;                        //Sets speed to high
     }
-    if(data == 'l'){
-      left();
-      speed = 200;
+    if(data == 'l'){                      //'l' makes it go left medium speed
+      left();                             //Calls right function
+      speed = 255;                        //Sets speed to medium
     }
-    if(data == 'k'){
-      left();
-      speed = 150;
+    if(data == 'k'){                      //'k' makes it go left low speed
+      left();                             //Calls right function
+      speed = 150;                        //Sets speed to low
     }
-    if (data == 'S'){
-      stop();
+    if (data == 'S'){                     //'S' makes it go left full speed
+      stop();                             //Calls stop function     
     }
   }
 }

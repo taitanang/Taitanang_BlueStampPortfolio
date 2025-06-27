@@ -11,7 +11,7 @@
 
 
  <details>
-  <summary> <b> Click to expand </b></summary>
+  <summary> <b> Click to view </b></summary>
   
   This content will be collapsed by default.
   It can contain any valid Markdown.
@@ -275,7 +275,10 @@ void loop() {
 
 
 ### Driving code:
-```c++
+<details>
+  <summary> <b> Click to view </b></summary>
+  
+  ```c++
 #include <SoftwareSerial.h>             //gets the bluetooth library
 SoftwareSerial Bluetooth(12,13);        //sets the bluetooth module's pins to 12 and 13 on the uno
 char data;                              //variable to store accelerometer's data
@@ -561,11 +564,15 @@ void loop() {                           //loop runs forever
 // Left:       k    |    l   |    L
 
 ```
+</details>
 
 ## Milestone 2 Code
 
 ### Glove code:
-```c++
+<details>
+  <summary> <b> Click to view </b></summary>
+  
+  ```c++
 #include <Wire.h>                          //including a library to get data from accelerometer
 #include <SoftwareSerial.h>                //including a library for bluetooth communciation
 SoftwareSerial Bluetooth(2,3);             //sets the bluetooth pins to 2 and 3 on the nano
@@ -671,8 +678,13 @@ void loop() {
 
 
 ```
+</details>
+
 ### Driving code:
-```c++
+<details>
+  <summary> <b> Click to view </b></summary>
+  
+  ```c++
 #include <SoftwareSerial.h>             //gets the bluetooth library
 SoftwareSerial Bluetooth(12,13);        // sets the bluetooth module's pins to 12 and 13 on the uno
 char data;                              //variable to store accelerometer's data
@@ -809,6 +821,8 @@ void loop() {                             //will run forever
 // Left:       k    |    l   |    L
 
 ```
+</details>
+
 ## Milestone 1 Code
 
 ### Driving code:

@@ -96,6 +96,8 @@ A challenge I had was pairing the two Bluetooth Modules together, because they w
 
 After this milestone, I will work on the software portion of the project, utilizing the Bluetooth connection to be able to steer the robot. 
 
+
+
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
 Figure 1: Schematic of the Gesture Controlled Robot car.
@@ -135,6 +137,13 @@ I faced numerous challenges while soldering to complete this project. It was my 
 The primary purpose of this project was for me to learn soldering, and it was successful. If I need to solder for my intensive project, I will know how to do it. 
 
 # Appendix
+
+### How H-bridges work
+
+<!--- ![h-bridge](pic 1) --->
+Figure 3: An H-bridge circuit
+
+An L298N motor driver has two of these H-bridge circuits to allow motors to turn forward and backward. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. 
 
 ## Milestone 2 Code
 

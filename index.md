@@ -11,7 +11,7 @@
 
 
 <details markdown='1'>
-  <summary>⚡ GitHub Stats</summary>
+  <summary> <b> Test </b></summary>
 
 ```c++
 Serial.println("hi");

@@ -11,7 +11,7 @@
 
 
  <details>
-  <summary>Click to expand</summary>
+  <summary> <b> Click to expand </b></summary>
   
   This content will be collapsed by default.
   It can contain any valid Markdown.

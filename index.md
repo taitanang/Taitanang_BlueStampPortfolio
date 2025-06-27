@@ -17,15 +17,16 @@
 
 ### Description:
 
-Text
+For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis and parts for a case around the robot. Refer to figures 4-7 for images. 
 
 ### Challenges:
 
 One challenge I faced during this milestone was that two of the motors weren't working properly. They wouldn't turn forward, but they were able to turn backward. I tested multiple possible ways this could have happened, including the code, wiring, solder connections, and even replacing the motor driver. However, the solution was to rotate the motor driver 180 degrees and plug the motor wires into the opposite ports. 
+Another challenge was getting all the dimensions for the 3D-printed parts to be correct. For example, the chassis has a few screws protruding, so I made some indents in the casing to solve this issue. However, my measurements weren't accurate, and I had to use a Dremel to remove plastic that was colliding with the screws. 
 
 ### Next steps:
 
-This milestone means that I have finished the base project, and I will now start implementing some modifications. I will CAD a case to hide all of the wires and make the car look real, and try to add a few sensors to detect objects in its path. 
+This milestone means that I have finished the base project, and I will now start implementing some modifications. I will implement two sensors that will be able to detect objects. With some additional code, the robot will be able to automatically stop if something is in its path. 
 
 <!--
 For your final milestone, explain the outcome of your project. Key details to include are:

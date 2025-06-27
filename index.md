@@ -152,7 +152,7 @@ An L298N motor driver has two of these H-bridge circuits to allow the DC motors 
 ## Modification Code
 
  <details>
-  <summary> ## Click to expand </summary>
+  <summary> <b> Click to expand </b>  </summary>
   
   This content will be collapsed by default.
   It can contain any valid Markdown.

@@ -13,10 +13,9 @@
 <details markdown='1'>
   <summary>⚡ GitHub Stats</summary>
 
-1. something
-2. foo
-3. bar
-
+```c++
+Serial.println("hi");
+```
 </details>
   
 # Final Milestone

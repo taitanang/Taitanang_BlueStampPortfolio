@@ -153,7 +153,7 @@ An L298N motor driver has two of these H-bridge circuits to allow the DC motors 
 ## Modification Code
 
 ### Glove code:
- <details>
+ <details markdown='1'>
   <summary> <b> Click to view ↓ </b>  </summary>
   
   ```c++
@@ -276,7 +276,7 @@ void loop() {
 
 
 ### Driving code:
-<details>
+<details markdown='1'>
   <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
@@ -570,7 +570,7 @@ void loop() {                           //loop runs forever
 ## Milestone 2 Code
 
 ### Glove code:
-<details>
+<details markdown='1'>
   <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
@@ -682,7 +682,7 @@ void loop() {
 </details>
 
 ### Driving code:
-<details>
+<details markdown='1'>
   <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
@@ -827,7 +827,7 @@ void loop() {                             //will run forever
 ## Milestone 1 Code
 
 ### Driving code:
-<details>
+<details markdown='1'>
   <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
@@ -909,7 +909,7 @@ void loop(){                     // Code runs in a loop forever
 
 
 ### Get data from accelerometer:
-<details>
+<details markdown='1'>
   <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
@@ -955,7 +955,7 @@ void loop() {
 
 
 ### Set up AT Commands for Bluetooth Modules:
-<details>
+<details markdown='1'>
   <summary> <b> Click to view ↓ </b></summary>
   
   ```c++

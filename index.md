@@ -826,7 +826,10 @@ void loop() {                             //will run forever
 ## Milestone 1 Code
 
 ### Driving code:
-```c++
+<details>
+  <summary> <b> Click to view </b></summary>
+  
+  ```c++
 
 int enA = 5;                  // Sets motor driver pins to 5-10 on the Uno
 int in1 = 6;
@@ -901,9 +904,14 @@ void loop(){                     // Code runs in a loop forever
 }
 
 ```
+</details>
+
 
 ### Get data from accelerometer:
-```c++
+<details>
+  <summary> <b> Click to view </b></summary>
+  
+  ```c++
 #include <Wire.h>                             //including a library to get data from accelerometer
 
 const int MPU = 0x68;                         // MPU6050 I2C address
@@ -942,9 +950,14 @@ void loop() {
   delay(100);
 }
 ```
+</details>
+
 
 ### Set up AT Commands for Bluetooth Modules:
-```c++
+<details>
+  <summary> <b> Click to view </b></summary>
+  
+  ```c++
 #include <SoftwareSerial.h>           //Imports bluetooth library
 SoftwareSerial Bluetooth(2,3);        // Sets bluetooth module's pins to 2 and 3 on the nano
 
@@ -963,4 +976,6 @@ void loop() {                         //Loop code, runs forever
 }
 
 ```
+</details>
+
 

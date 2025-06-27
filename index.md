@@ -141,6 +141,413 @@ Figure 3: An H-bridge circuit
 
 An L298N motor driver has two of these H-bridge circuits to allow the DC motors to turn forward and backward. This works because by switching the polarity on a DC motor, it changes the direction the motor spins. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. Although a motor driver only has two H-bridges, I used one motor driver to control all four wheels by connecting the two motors on each side to one H-bridge. This works because I don't need motors on the same side to run in opposite directions.
 
+## Modification Code
+
+## Glove code:
+```c++
+#include <Wire.h>                             //including a library to get data from accelerometer
+#include <SoftwareSerial.h>                   //including a library for bluetooth communciation
+SoftwareSerial Bluetooth(2,3);                //sets the bluetooth pins to 2 and 3 on the nano
+
+const int MPU = 0x68;                         // MPU6050 I2C address
+float AccX, AccY, AccZ;                       //variables for accelerometer data
+char data = 'n';                              //sets car data as 'n', so doesn't start sending data until it is connected
+    
+void read(){                                  //read data from accelerometer function
+  Wire.beginTransmission(MPU);                //starts transmission to the accelerometer
+  Wire.write(0x3B);                           //tells where to start reading from
+  Wire.endTransmission(false);                //doesn't stop
+  Wire.requestFrom(MPU, 6, true);             // request a total of 6 bytes
+  
+  AccX = (Wire.read() << 8 | Wire.read());    //combines two bytes from each axis 
+  AccY = (Wire.read() << 8 | Wire.read());    //to get x, y, and z data
+  AccZ = (Wire.read() << 8 | Wire.read());
+
+  AccX = map(AccX, -17000, 17000, 0, 180);    //maps the data (originally from around 
+  AccY = map(AccY, -17000, 17000, 0, 180);    // -17000 to 17000) to 0 to 180.
+  AccZ = map(AccZ, -17000, 17000, 0, 180);
+
+
+  Serial.print("X: ");                        //prints data for easy monitoring
+  Serial.print(AccX);
+  Serial.print("  Y: ");
+  Serial.print(AccY);
+  Serial.print("  Z: ");
+  Serial.println(AccZ);
+  delay(100);
+}
+
+void setup() {                                //setup code
+  Wire.begin();                               //starts the accelerometer
+  Wire.beginTransmission(MPU);                //starts a transmission to the
+  Wire.write(0x6B);                           //0x6b register (which is responsible for power)
+  Wire.write(0);                              // set to zero (wakes it up)
+  Wire.endTransmission(true);                 //ends the transmission
+  Serial.begin(9600);                         //starts serial
+  Bluetooth.begin(9600);                      //starts bluetooth
+}
+
+void loop() {
+  if(Bluetooth.available() > 0){              //checks if there is data to be read from the car
+    data = Bluetooth.read();                  //reads data and stores it in 'data' var.
+    Serial.println(data);
+  }
+  if (data != 'n'){                           //only runs if data isn't n (which means car is in special movement)
+    read();                                   //calls read function to read accelerometer data
+    if(data != 'f'){                          //only sends forward data if nothing is blocking forward sensor on car
+      if(0 < AccX && AccX <= 20){             //If X is between 0 and 20, which is high tilt forward,
+        Bluetooth.write("F");                 //sends 'F' to the car
+        delay(100);
+      }
+      if(20 < AccX && AccX <= 40){            //If X is between 20 and 40, which is medium tilt forward,
+        Bluetooth.write("f");                 //sends 'f' to the car
+        delay(100);
+      }
+      if(40 < AccX && AccX <= 60){            //If X is between 40 and 60, which is low tilt forward,
+        Bluetooth.write("d");                 //sends 'd' to the car
+        delay(100);
+      }
+    }
+    if(data != 'b'){                          //only sends backward data if nothing is blocking backward sensor on car
+      if (180 > AccX && AccX >= 160){         //If X is between 180 and 160, which is high tilt backward,
+        Bluetooth.write("B");                 //sends 'B' to the car
+        delay(100);
+      }
+      if (160 > AccX && AccX >= 140){         //If X is between 160 and 140, which is medium tilt backward,
+        Bluetooth.write("b");                 //sends 'b' to the car
+        delay(100);
+      }
+      if (140 > AccX && AccX >= 120){         //If X is between 140 and 120, which is low tilt backward,
+        Bluetooth.write("v");                 //sends 'v' to the car
+        delay(100);
+      }
+    }
+    if (0 < AccY && AccY <= 20){              //If Y is between 0 and 20, which is high tilt left,
+      Bluetooth.write("L");                   //sends 'L' to the car
+      delay(100);
+    } 
+    if (20 < AccY && AccY <= 40){             //If Y is between 20 and 40, which is medium tilt left,
+      Bluetooth.write("l");                   //sends 'l' to the car
+      delay(100);
+    } 
+    if (40 < AccY && AccY <= 60){             //If Y is between 40 and 60, which is low tilt left,
+      Bluetooth.write("k");                   //sends 'k' to the car
+      delay(100);
+    } 
+    if (180 > AccY && AccY >= 160){           //If Y is between 180 and 160, which is high tilt right,
+      Bluetooth.write("R");                   //sends 'R' to the car
+      delay(100);
+    } 
+    if (160 > AccY && AccY >= 140){           //If Y is between 160 and 140, which is medium tilt right,
+      Bluetooth.write("r");                   //sends 'r' to the car
+      delay(100);
+    } 
+    if (140 > AccY && AccY >= 120){           //If Y is between 140 and 120, which is low tilt right,
+      Bluetooth.write("e");                   //sends 'e' to the car
+      delay(100);
+    } 
+    if (60 < AccX && AccX < 120 && 60 < AccY && AccY < 120){//If both x and y are in neutral position,
+      Bluetooth.write("S");                                 //Sends 'S' to the car
+      delay(100);
+    }
+  }
+}
+
+// Speeds:    Low   | Medium |  High  
+// Forward:    d    |    f   |    F
+// Backward:   v    |    b   |    B
+// Right:      e    |    r   |    R
+// Left:       k    |    l   |    L
+
+```
+### Driving code:
+```c++
+#include <SoftwareSerial.h>             //gets the bluetooth library
+SoftwareSerial Bluetooth(12,13);        //sets the bluetooth module's pins to 12 and 13 on the uno
+char data;                              //variable to store accelerometer's data
+int activate = 0;                       //variable to activate special movement checks
+int yes = 0;                            //variable to trigger special movement
+int speed = 255;                        //starting speed, can change
+unsigned long previousMillis = 0;       //variable to record amount of time since movement 1 of 2 has finished for special movement
+const long interval = 300;              //amount of time allowed since 1st movement finished to activate special movement
+unsigned long currentMillis;            //records current time 
+
+int enA = 5;                            //sets pins from the motor driver to 5-10 on the uno
+int in1 = 6;
+int in2 = 7;
+int in3 = 8;
+int in4 = 9;
+int enB = 10;
+
+int trigPin = 4;                        //sets the trigger pin for forward sensor
+int echoPin = 3;                        //sets the echo pin for forward sensor
+long duration;                          //records duration of echo for forward sensor
+float distance;                         //stores the distance of objects for forward sensor
+int forwardblock = 0;                   //gets activated if objects are closer than the set distance (block var) for forward sensor
+
+int trigPin1 = 11;                      //sets the trigger pin for backward sensor
+int echoPin1 = 2;                       //sets the echo pin for backward sensor
+long duration1;                         //records duration of echo for backward sensor
+float distance1;                        //stores the distance of objects for backward sensor
+int backblock = 0;                      //gets activated if objects are closer than the set distance (block var) for backward sensor
+
+int block = 10;                         //distance threshold that blocks movement
+
+void forward() {                        //function to drive forward
+  if (forwardblock == 0) {              //only works if forward block isn't activated (objects are further than 'block' distance)
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    analogWrite(enA, speed);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
+    analogWrite(enB, speed);
+    delay(100);
+  }
+}
+
+void checkforward() {                   //function to check if acceleromter data wants robot to move forward
+  if(data == 'F'){                      //'F' makes it go forward full speed
+    forward();                          //Calls forward function
+    speed = 255;                        //Sets speed to high
+  }
+  if(data == 'f'){                      //'f' makes it go forward medium speed
+    forward();                          //Calls forward function
+    speed = 200;                        //Sets speed to medium
+  }
+  if(data == 'd'){                      //'d' makes it go forward low speed
+    forward();                          //Calls forward function
+    speed = 150;                        //Sets speed to low
+  }
+}
+
+void backward() {                       //function to drive backward
+  if (backblock == 0) {                 //only works if backward block isn't activated (objects are further than 'block' distance)
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    analogWrite(enA, speed);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
+    analogWrite(enB, speed);
+    delay(100);
+  }
+}
+
+void checkbackward() {                  //function to check if acceleromter data wants robot to move backward
+  if(data == 'B'){                      //'B' makes it go backward full speed
+    backward();                         //Calls backward function
+    speed = 255;                        //Sets speed to high
+  }
+  if(data == 'b'){                      //'b' makes it go backward medium speed
+    backward();                         //Calls backward function
+    speed = 200;                        //Sets speed to medium
+  }
+  if(data == 'v'){                      //'v' makes it go backward low speed
+    backward();                         //Calls backward function
+    speed = 150;                        //Sets speed to low
+  }
+}
+
+void left(){                            //function to drive left
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, speed);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+  analogWrite(enB, speed);
+  delay(100);
+}
+
+void checkleft() {                      //function to check if acceleromter data wants robot to move left
+  if(data == 'L'){                      //'L' makes it go left full speed
+    left();                             //Calls right function
+    speed = 255;                        //Sets speed to high
+  }
+  if(data == 'l'){                      //'l' makes it go left medium speed
+    left();                             //Calls right function
+    speed = 255;                        //Sets speed to medium
+  }
+  if(data == 'k'){                      //'k' makes it go left low speed
+    left();                             //Calls right function
+    speed = 150;                        //Sets speed to low
+  }
+}
+
+void right(){                           //function to drive right
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  analogWrite(enA, speed);
+  analogWrite(enB, speed);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  delay(100);
+}
+
+void checkright() {                     //function to check if acceleromter data wants robot to move right
+  if(data == 'R'){                      //'R' makes it go right full speed
+    right();                            //Calls right function
+    speed = 255;                        //Sets speed to high
+  }
+  if(data == 'r'){                      //'r' makes it go right medium speed
+    right();                            //Calls right function
+    speed = 200;                        //Sets speed to medium
+  }
+  if(data == 'e'){                      //'e' makes it go right low speed
+    right();                            //Calls right function
+    speed = 150;                        //Sets speed to low
+  }
+}
+
+void stop(){                            //function to stop the robot
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  delay(100);
+}
+
+void checkstop(){                       //function to check if acceleromter data wants robot to move stop
+  if (data == 'S'){                     //'S' makes it go left full speed
+    stop();                             //Calls stop function     
+  }
+}
+
+void sense() {                          //function to check forward sensor
+  digitalWrite(trigPin, LOW);           //makes sure sensor is off before sending 
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);          //sets the trig pin to high for 10 microseconds, which triggers an ultrasonic burst
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);           
+
+  duration = pulseIn(echoPin, HIGH);    //records the amount of time the echo pin is high (which is until it receives the ultrasonic wave back)
+
+  distance = duration * 0.034 / 2;      //calculates distance using the speed of sound, divides by two because wave has to go there and back
+
+  if (distance < block) {               //if the distance is closer than the block distance, 
+    forwardblock = 1;                   //'forwardblock' gets triggered, which blocks movement forward
+  } else {
+    forwardblock = 0;                   //otherwise it is off
+  }
+}
+
+void sense1() {                         //same as sense() function but with the backward sensor
+  digitalWrite(trigPin1, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin1, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin1, LOW);
+
+  duration1 = pulseIn(echoPin1, HIGH);
+
+  distance1 = duration1 * 0.034 / 2;
+
+  if (distance1 < block) {
+    backblock = 1;
+  } else {
+    backblock = 0;
+  }
+}
+
+void setup() {                          //setup code, runs once
+  Serial.begin(9600);                   //starts serial monitor
+  Bluetooth.begin(9600);                //starts bluetooth
+  pinMode(enA, OUTPUT);                 //sets motor driver pins to outputs
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(enB, OUTPUT);
+  pinMode(trigPin, OUTPUT);             //sets trigger pins as outputs and echo pins as inputs for the two sensors
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
+  Bluetooth.write("y");                 //tells glove that it is ready
+}
+
+void loop() {                           //loop runs forever
+  currentMillis = millis();             //updates time
+  if(Bluetooth.available() > 0){        //runs if the bluetooth is connected
+    switch (yes) {                      
+      case 0:                           //runs if special movement isn't triggered
+        data = Bluetooth.read();        //reads instructions from glove
+        delay(100);
+        Serial.println(data);           //prints data for easy monitoring
+        sense();                        //calls both sensor functions to check distances
+        sense1();
+        Serial.println(forwardblock);   
+        Serial.println(backblock);
+        while (forwardblock == 1) {     //if object is in front of robot
+          Bluetooth.write("f");         //tells glove to not send forward data
+          sense();                      //keeps checking if object has disappeared
+          data = Bluetooth.read();      //reads data because cannot exit loop until object is gone
+          Serial.println(data);         
+          if (forwardblock == 1 && (data == 'F' || data == 'f' || data == 'd')) { //stops car if it is already moving
+            stop();
+          }
+          if (backblock != 1) {         //checks backward data if back isn't blocked
+            checkbackward();
+          }
+          checkleft();                  //also checks left, right, and stop
+          checkright();
+          checkstop();
+          delay(100);
+        }
+        while (backblock == 1) {        //same as while loop above but with backward sensor
+          Bluetooth.write("b");
+          sense1();
+          data = Bluetooth.read();
+          Serial.println(data);
+          if (backblock == 1 && (data == 'B' || data == 'b' || data == 'v')) {
+            stop();
+          }
+          if(forwardblock != 1){
+            checkforward();
+          }
+          checkleft();
+          checkright();
+          checkstop();
+          delay(100);
+        }
+        Bluetooth.write("y");           //writes 'y' to the glove when everything is clear
+
+        if ((data == 'R' || data == 'r' || data == 'e')) { //first action for special movement
+          previousMillis = currentMillis;                  //sets timer
+          activate = 1;                                    //activates next if statement
+        }
+        if ((activate == 1) && (currentMillis - previousMillis <= interval) && (data == 'L' || data == 'l' || data == 'k')) {
+          activate = 0; //this if statement is triggered if a right movement was detected and within the 0.3 seconds a left movement was detected
+          yes = 1;      //activates second case in the switch
+        }
+        if (forwardblock != 1) {            //checks for forward movement if nothing is obstructing the forward sensor
+          checkforward();
+        }
+        if (backblock != 1) {               //checks for backward movement if nothing is obstructing the backward sensor
+          checkbackward();
+        }
+        checkright();                       //checks for left, right, and stop data
+        checkleft();
+        checkstop();
+        break;
+      case 1:                               //runs if special movement is triggered
+        stop();                             //stops robot if it was moving
+        Bluetooth.write("n");               //tells glove to stop sending data
+        for (int i = 1; i < 51; i++) {      //can code anything run for any amount of time
+          speed = 150;
+          stop();
+        }
+        yes = 0;                            //resets special movement var.
+        break;
+    }
+  }
+}
+
+// Speeds:    Low   | Medium |  High
+// Forward:    d    |    f   |    F
+// Backward:   v    |    b   |    B
+// Right:      e    |    r   |    R
+// Left:       k    |    l   |    L
+
+```
+
 ## Milestone 2 Code
 
 ### Glove code:
@@ -228,11 +635,11 @@ void loop() {
     Bluetooth.write("L");                     //sends 'L' to the car
     delay(100);
   } 
-  else if (160 > AccY && AccY >= 140){        //If Y is between 160 and 140, which is medium tilt right,
+  else if (160 > AccY && AccY >= 140){        //If Y is between 160 and 140, which is medium tilt left,
     Bluetooth.write("l");                     //sends 'l' to the car
     delay(100);
   } 
-  else if (140 > AccY && AccY >= 120){        //If Y is between 140 and 120, which is low tilt right,
+  else if (140 > AccY && AccY >= 120){        //If Y is between 140 and 120, which is low tilt left,
     Bluetooth.write("k");                     //sends 'k' to the car
     delay(100);
   } 

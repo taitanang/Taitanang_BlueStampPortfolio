@@ -153,7 +153,7 @@ An L298N motor driver has two of these H-bridge circuits to allow the DC motors 
 
 ### Glove code:
  <details>
-  <summary> <b> Click to view </b>  </summary>
+  <summary> <b> Click to view ↓ </b>  </summary>
   
   ```c++
 #include <Wire.h>                             //including a library to get data from accelerometer
@@ -276,7 +276,7 @@ void loop() {
 
 ### Driving code:
 <details>
-  <summary> <b> Click to view </b></summary>
+  <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
 #include <SoftwareSerial.h>             //gets the bluetooth library
@@ -570,7 +570,7 @@ void loop() {                           //loop runs forever
 
 ### Glove code:
 <details>
-  <summary> <b> Click to view </b></summary>
+  <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
 #include <Wire.h>                          //including a library to get data from accelerometer
@@ -682,7 +682,7 @@ void loop() {
 
 ### Driving code:
 <details>
-  <summary> <b> Click to view </b></summary>
+  <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
 #include <SoftwareSerial.h>             //gets the bluetooth library
@@ -827,7 +827,7 @@ void loop() {                             //will run forever
 
 ### Driving code:
 <details>
-  <summary> <b> Click to view </b></summary>
+  <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
 
@@ -909,7 +909,7 @@ void loop(){                     // Code runs in a loop forever
 
 ### Get data from accelerometer:
 <details>
-  <summary> <b> Click to view </b></summary>
+  <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
 #include <Wire.h>                             //including a library to get data from accelerometer
@@ -955,7 +955,7 @@ void loop() {
 
 ### Set up AT Commands for Bluetooth Modules:
 <details>
-  <summary> <b> Click to view </b></summary>
+  <summary> <b> Click to view ↓ </b></summary>
   
   ```c++
 #include <SoftwareSerial.h>           //Imports bluetooth library

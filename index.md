@@ -10,7 +10,7 @@
 ![Headstone Image](Screenshot 2025-06-20 at 14.40.58.png)
 
 
-<details>
+ <details>
   <summary>Click to expand</summary>
   
   This content will be collapsed by default.
@@ -150,6 +150,13 @@ Figure 3: An H-bridge circuit
 An L298N motor driver has two of these H-bridge circuits to allow the DC motors to turn forward and backward. This works because by switching the polarity on a DC motor, it changes the direction the motor spins. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. Although a motor driver only has two H-bridges, I used one motor driver to control all four wheels by connecting the two motors on each side to one H-bridge. This works because I don't need motors on the same side to run in opposite directions.
 
 ## Modification Code
+
+#<details>
+##  <summary> Click to expand </summary>
+  
+  This content will be collapsed by default.
+  It can contain any valid Markdown.
+</details>
 
 ## Glove code:
 ```c++

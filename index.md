@@ -567,7 +567,7 @@ void loop() {                           //loop runs forever
 ```
 </details>
 
-## Milestone 2 Code
+## <b> Milestone 2 Code </b>
 
 ### Glove code:
 <details markdown='1'>
@@ -824,7 +824,7 @@ void loop() {                             //will run forever
 ```
 </details>
 
-## Milestone 1 Code
+## <b> Milestone 1 Code </b>
 
 ### Driving code:
 <details markdown='1'>

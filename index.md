@@ -140,7 +140,7 @@ The primary purpose of this project was for me to learn soldering, and it was su
 
 ### How H-bridges work
 
-<!--- ![h-bridge](pic 1) --->
+![h-bridge](H-bridge.png)
 Figure 3: An H-bridge circuit
 
 An L298N motor driver has two of these H-bridge circuits to allow motors to turn forward and backward. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. 

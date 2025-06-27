@@ -151,15 +151,11 @@ An L298N motor driver has two of these H-bridge circuits to allow the DC motors 
 
 ## Modification Code
 
+### Glove code:
  <details>
-  <summary> <b> Click to expand </b>  </summary>
+  <summary> <b> Click to view </b>  </summary>
   
-  This content will be collapsed by default.
-  It can contain any valid Markdown.
-</details>
-
-## Glove code:
-```c++
+  ```c++
 #include <Wire.h>                             //including a library to get data from accelerometer
 #include <SoftwareSerial.h>                   //including a library for bluetooth communciation
 SoftwareSerial Bluetooth(2,3);                //sets the bluetooth pins to 2 and 3 on the nano
@@ -275,6 +271,9 @@ void loop() {
 // Left:       k    |    l   |    L
 
 ```
+</details>
+
+
 ### Driving code:
 ```c++
 #include <SoftwareSerial.h>             //gets the bluetooth library

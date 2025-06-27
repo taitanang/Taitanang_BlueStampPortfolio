@@ -8,15 +8,6 @@
 | Tai T | Leigh High School | Mechanical Engineering | Incoming Sophomore
 
 ![Headstone Image](Screenshot 2025-06-20 at 14.40.58.png)
-
-
-<details markdown='1'>
-  <summary> <b> Test </b></summary>
-
-```c++
-Serial.println("hi");
-```
-</details>
   
 # Final Milestone
 

@@ -10,11 +10,13 @@
 ![Headstone Image](Screenshot 2025-06-20 at 14.40.58.png)
 
 
- <details>
-  <summary> <b> Click to view </b></summary>
-  
-  This content will be collapsed by default.
-  It can contain any valid Markdown.
+<details markdown='1'>
+  <summary>⚡ GitHub Stats</summary>
+
+1. something
+2. foo
+3. bar
+
 </details>
   
 # Final Milestone

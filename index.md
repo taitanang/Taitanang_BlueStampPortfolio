@@ -26,7 +26,7 @@ Another challenge was getting all the dimensions for the 3D-printed parts to be 
 
 ### Next steps:
 
-This milestone means that I have finished the base project, and I will now start implementing some modifications. I will implement two sensors that will be able to detect objects. With some additional code, the robot will be able to automatically stop if something is in its path. 
+This milestone means that I have finished the base project, and I will now start implementing some modifications. I will implement two sensors that will be able to detect objects. With some additional code, the robot will be able to stop if something is in its path automatically. 
 
 <!--
 For your final milestone, explain the outcome of your project. Key details to include are:
@@ -50,6 +50,13 @@ Iterations:
 ![L298N Motor Driver CAD Model](Screenshot 2025-06-25 at 2.39.52 PM.jpeg)
 ![L298N Motor Driver CAD Drawing](Screenshot 2025-06-25 at 3.49.13 PM.jpeg)
 Figure 6: CAD model of the L298N Motor Driver and design drawing
+
+![Front casing CAD model](Screenshot 2025-07-14 at 8.47.00 AM.jpeg)
+Figure 7: CAD model of the front casing 
+
+![Back casing CAD model 1](Screenshot 2025-07-14 at 8.47.10 AM.jpeg)
+![Back casing CAD model 2](Screenshot 2025-07-14 at 8.47.29 AM.jpeg)
+Figure 8: CAD models of the back casing, split into two parts for battery pack space
 
 # Second Milestone
 

@@ -114,8 +114,8 @@ Figure 1: Schematic of the Gesture Controlled Robot car.
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
 Figure 2: This is a schematic of the glove circuits. 
 
-![Modification Main Car Schematic](Screenshot 2025-06-27 at 4.11.32 PM.jpeg)
-Figure 3: This is a schematic of the main car with the additional two sensors.
+![Modification Main Car Schematic](Screenshot 2025-07-15 at 11.22.22 AM.jpeg)
+Figure 3: This is a schematic of the main car with the additional two sensors and four LED modifications
 
 # Bill of Materials
 <!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.

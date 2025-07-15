@@ -9,9 +9,28 @@
 
 ![Headstone Image](Screenshot 2025-06-20 at 14.40.58.png)
   
-# Final Milestone
+# Modification Milestone
 
-<!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+### Description:
+
+text
+
+### Challenges:
+
+text
+
+### Next steps:
+
+text
+
+### How an Ultrasonic Sensor Works
+
+![Ultrasonic sensor diagram](Ultrasonic-Sensor-Diagram.jpeg)
+Figure 8: Diagram of how an ultrasonic sensor works
+
+An ultrasonic sensor has two specialized pins, in addition to the power and ground pins, which work together to measure distance. The trigger pin creates an ultrasonic burst when coded high for 10 microseconds. As soon as the burst gets sent, the echo pin is set to high until it receives the burst back (the burst would have hit an object and bounced back). By recording the amount of time the echo pin is high in a variable and multiplying that by 0.034/2 (0.034 is the speed of sound in centimeters per microsecond, and it is divided by two because the burst has to travel there and back), the distance to an object can be recorded.
+
+# Final Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
@@ -100,7 +119,7 @@ A challenge I had was pairing the two Bluetooth Modules together, because they w
 
 After this milestone, I will work on the software portion of the project, utilizing the Bluetooth connection to be able to steer the robot. 
 
-### How H-bridges work
+### How H-bridges Work
 
 ![h-bridge](H-bridge.png)
 Figure 3: An H-bridge circuit

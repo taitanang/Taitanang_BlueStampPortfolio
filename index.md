@@ -32,16 +32,15 @@ An ultrasonic sensor has two specialized pins, in addition to the power and grou
 
 # Final Milestone
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aKtyTNzGmXI?si=Gydvsm9XCV_Sq1bm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Description:
 
-For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis and parts for a case around the robot. Refer to figures 4-7 for images. 
+For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis and parts for a case around the robot. Refer to figures 4-7 for images. The boxes are to keep the circuit boards from sliding around on the car, and include holes to screw into the chassis. The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them together, I used a soldering iron to melt the plastic from one part onto another. 
 
 ### Challenges:
 
-One challenge I faced during this milestone was that two of the motors weren't working properly. They wouldn't turn forward, but they were able to turn backward. I tested multiple possible ways this could have happened, including the code, wiring, solder connections, and even replacing the motor driver. However, the solution was to rotate the motor driver 180 degrees and plug the motor wires into the opposite ports. 
-Another challenge was getting all the dimensions for the 3D-printed parts to be correct. For example, the chassis has a few screws protruding, so I made some indents in the casing to solve this issue. However, my measurements weren't accurate, and I had to use a Dremel to remove plastic that was colliding with the screws. 
+One challenge I faced during this milestone was that two of the motors weren't working properly. They wouldn't turn forward, but they were able to turn backward. I tested multiple possible ways this could have happened, including the code, wiring, solder connections, and even replacing the motor driver. However, the solution was just to rotate the motor driver 180 degrees and plug the motor wires into the opposite ports. Another challenge was getting all the dimensions for the 3D-printed parts to be correct. For example, the chassis has a few screws protruding, so I made some indents in the casing to solve this issue. However, my measurements weren't accurate, and I had to use a Dremel to remove plastic that was colliding with the screws. 
 
 ### Next steps:
 

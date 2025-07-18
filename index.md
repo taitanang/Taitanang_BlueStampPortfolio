@@ -106,7 +106,7 @@ Figure 3: Flowchart of the robot's movement code
 ![hc-05 diagram](hc051.jpg)
 Figure 10: Diagram of the HC-05 Module, showing the different pins' functionality
 
-An HC-05 module uses wireless serial communication to send and receive data to other Bluetooth devices, such as phones, computers, or other HC-05 modules. The _T_ X pin on the module _transmits_ data, while the _R_ X pin _receives_ data. In my project, I used two modules, one connected to the Arduino Nano on the glove and one connected to the Uno on the car, to allow the two microcontrollers to communicate. By using AT commands, the modules can be set in either 'master' or 'slave' mode, and can be configured to attempt to connect only to the other one. 
+An HC-05 module uses wireless serial communication to send and receive data to other Bluetooth devices, such as phones, computers, or other HC-05 modules. The TX pin on the module _transmits_ data, while the RX pin _receives_ data. In my project, I used two modules, one connected to the Arduino Nano on the glove and one connected to the Uno on the car, to allow the two microcontrollers to communicate. By using AT commands, the modules can be set in either 'master' or 'slave' mode, and can be configured to attempt to connect only to the other one. 
 
 # First Milestone
 

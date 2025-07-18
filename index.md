@@ -32,7 +32,7 @@ Figure 2: The CAD model of my car casing. I had to split it up into four parts b
 ### How an Ultrasonic Sensor Works
 
 ![Ultrasonic sensor diagram](Ultrasonic-Sensor-Diagram.jpeg)
-Figure 8: Diagram of how an ultrasonic sensor works
+Figure 3: Diagram of how an ultrasonic sensor works
 
 An ultrasonic sensor has two specialized pins, in addition to the power and ground pins, which work together to measure distance. The trigger pin creates an ultrasonic burst when coded high for 10 microseconds. As soon as the burst gets sent, the echo pin is set to high until it receives the burst back (the burst would have hit an object and bounced back). By recording the amount of time the echo pin is high in a variable and multiplying that by 0.034/2 (0.034 is the speed of sound in centimeters per microsecond, and it is divided by two because the burst has to travel there and back), the distance to an object can be recorded.
 
@@ -88,7 +88,7 @@ Figure 8: CAD models of the back casing, split into two parts for battery pack s
 
 ### Description:
 
-Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 3 for a simplified code diagram.
+Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 9 for a simplified code diagram.
 
 ### Challenges:
 
@@ -99,7 +99,7 @@ A challenge I had was getting the Bluetooth modules to send and receive data. In
 I will start working on cleaning up all the wires, making the glove wearable, and adding finishing touches to the robot. 
 
 ![Flowchart](Screenshot 2025-06-23 at 10.16.16.png)
-Figure 3: Flowchart of the robot's movement code
+Figure 9: Flowchart of the robot's movement code
 
 ### How an HC-05 Bluetooth Module works
 
@@ -127,19 +127,19 @@ After this milestone, I will work on the software portion of the project, utiliz
 ### How H-bridges Work
 
 ![h-bridge](H-bridge.png)
-Figure 3: An H-bridge circuit
+Figure 11: An H-bridge circuit
 
 An L298N motor driver has two of these H-bridge circuits to allow the DC motors to turn forward and backward. This works because by switching the polarity on a DC motor, it changes the direction the motor spins. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. Although a motor driver only has two H-bridges, I used one motor driver to control all four wheels by connecting the two motors on each side to one H-bridge. This works because I don't need motors on the same side to run in opposite directions.
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-Figure 1: Schematic of the Gesture Controlled Robot car.
+Figure 12: Schematic of the Gesture Controlled Robot car.
 
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
-Figure 2: This is a schematic of the glove circuits. 
+Figure 13: This is a schematic of the glove circuits. 
 
 ![Modification Main Car Schematic](Screenshot 2025-07-15 at 11.22.22 AM.jpeg)
-Figure 3: This is a schematic of the main car with the additional two sensors and four LED modifications
+Figure 14: This is a schematic of the main car with the additional two sensors and four LED modifications
 
 # Bill of Materials
 <!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.

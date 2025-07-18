@@ -101,12 +101,12 @@ I will start working on cleaning up all the wires, making the glove wearable, an
 ![Flowchart](Screenshot 2025-06-23 at 10.16.16.png)
 Figure 3: Flowchart of the robot's movement code
 
-<!--
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone -->
+### How an HC-05 Bluetooth Module works
+
+![hc-05 diagram](hc051.jpg)
+Figure 10: Diagram of the HC-05 Module, showing the different pins' functionality
+
+An HC-05 module uses wireless serial communication to send and receive data to other Bluetooth devices, such as phones, computers, or other HC-05 modules. The _T_ X pin on the module _transmits_ data, while the _R_ X pin _receives_ data. In my project, I used two modules, one connected to the Arduino Nano on the glove and one connected to the Uno on the car, to allow the two microcontrollers to communicate. By using AT commands, the modules can be set in either 'master' or 'slave' mode, and can be configured to attempt to connect only to the other one. 
 
 # First Milestone
 

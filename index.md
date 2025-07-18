@@ -152,7 +152,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Robot Motor and Chassis | The base of the car, including the motors and wheels | $26.54 | <a href="https://www.amazon.com/Robot-Chassis-Encoder-Education-Electronic/dp/B08LDWNWFH?gQT=1"> Link </a> |
+| Robot Motor and Chassis Kit | The base of the car, including the motors and wheels | $26.54 | <a href="https://www.amazon.com/Robot-Chassis-Encoder-Education-Electronic/dp/B08LDWNWFH?gQT=1"> Link </a> |
 | Arduino Uno | The 'brains' of the car, controls motor driver via HC-05 data | $27.60 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/?th=1"> Link </a> |
 | L298N motor driver | Controlls wheels | $2.50 | <a href="https://www.amazon.com/Controller-H-Bridge-Stepper-Control-Mega2560/dp/B07WS89781?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&gQT=2&th=1"> Link </a> |
 | HC-05 (2x) | Allows for bluetooth connection between the car and the glove | $15.90 | <a href="https://www.amazon.com/Bluetooth-Converter-Wireless-Transceiver-Communication/dp/B08Z3J9Y8T/ref=asc_df_B08Z3J9Y8T?mcid=4a30dcb31db03200a4dacaa90c980433&hvocijid=8599875552977287945-B08Z3J9Y8T-&hvexpln=73&tag=hyprod-20&linkCode=df0&hvadid=721245378154&hvpos=&hvnetw=g&hvrand=8599875552977287945&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032178&hvtargid=pla-2281435178058&psc=1"> Link </a> |

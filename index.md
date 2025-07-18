@@ -13,15 +13,21 @@
 
 ### Description:
 
-text
+After completing the base project for the Gesture-Controlled Robot, I started adding modifications to it. I began by mounting two ultrasonic sensors on the front and rear of the car. To do this, I designed a case for them in Fusion 360 (Figure 1). I was able to code the sensors to detect objects at a certain distance away, and automatically stop the car if it was going to crash into them. Next, I designed a cover for the car to both hide away all the wires and electronics and make the car look more realistic (Figure 2). I also added four LEDs to the car, two as headlights and two as brake lights, incorporating holes in the car cover to allow them to be visible. 
 
 ### Challenges:
 
-text
+I had many issues trying to get the ultrasonic sensor to work properly. Initially, my code had numerous bugs, and when one of the sensors was covered, the car wasn't able to move in any other direction. Even after I fixed the code, I had trouble getting the car to stop in time. There were also problems with 3D printed parts that delayed the completion of this milestone. For some reason, one of the pieces of the car cover got printed mirrored, so I had to wait an extra day while it was reprinted. The screw holes on the ultrasonic sensor case were also too small, resulting in it taking a while to attach. 
 
 ### Next steps:
 
-text
+Demo Night is coming up soon, so I will start preparing and practicing for my presentation, where I will demonstrate my project and how it works.
+
+![Ultrasonic sensor case](Screenshot 2025-07-18 at 10.27.50 AM.jpeg)
+Figure 1: This is the ultrasonic sensor case in CAD. I designed a removable back to be able to easily slide the sensor in and out. 
+
+![Car casing CAD Model](Screenshot 2025-07-18 at 10.20.00 AM.jpeg)
+Figure 2: The CAD model of my car casing. I had to split it up into four parts because it was too big for the 3D printer. 
 
 ### How an Ultrasonic Sensor Works
 

@@ -84,13 +84,16 @@ Figure 7: CAD model of the front casing
 ![Back casing CAD model 2](Screenshot 2025-07-14 at 8.47.29 AM.jpeg)
 Figure 8: CAD models of the back casing, split into two parts for battery pack space
 
+![casing drawing](Screenshot 2025-07-18 at 12.07.01 PM.jpeg)
+Figure 9: Design drawing for the front and back casing 
+
 # Second Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3t_FfjB1K0o?si=XeNe177qP2UhYiog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Description:
 
-Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 9 for a simplified code diagram.
+Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 10 for a simplified code diagram.
 
 ### Challenges:
 
@@ -101,12 +104,12 @@ A challenge I had was getting the Bluetooth modules to send and receive data. In
 I will start working on cleaning up all the wires, making the glove wearable, and adding finishing touches to the robot. 
 
 ![Flowchart](Screenshot 2025-06-23 at 10.16.16.png)
-Figure 9: Flowchart of the robot's movement code
+Figure 10: Flowchart of the robot's movement code
 
 ### How an HC-05 Bluetooth Module works
 
 ![hc-05 diagram](hc051.jpg)
-Figure 10: Diagram of the HC-05 Module, showing the different pins' functionality
+Figure 11: Diagram of the HC-05 Module, showing the different pins' functionality
 
 An HC-05 module uses wireless serial communication to send and receive data to other Bluetooth devices, such as phones, computers, or other HC-05 modules. The TX pin on the module _transmits_ data, while the RX pin _receives_ data. In my project, I used two modules, one connected to the Arduino Nano on the glove and one connected to the Uno on the car, to allow the two microcontrollers to communicate. By using AT commands, the modules can be set in either 'master' or 'slave' mode, and can be configured to attempt to connect only to the other one. 
 
@@ -129,19 +132,19 @@ After this milestone, I will work on the software portion of the project, utiliz
 ### How H-bridges Work
 
 ![h-bridge](H-bridge.png)
-Figure 11: An H-bridge circuit
+Figure 12: An H-bridge circuit
 
 An L298N motor driver has two of these H-bridge circuits to allow the DC motors to turn forward and backward. This works because by switching the polarity on a DC motor, it changes the direction the motor spins. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. Although a motor driver only has two H-bridges, I used one motor driver to control all four wheels by connecting the two motors on each side to one H-bridge. This works because I don't need motors on the same side to run in opposite directions.
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-Figure 12: Schematic of the Gesture Controlled Robot car.
+Figure 13: Schematic of the Gesture Controlled Robot car.
 
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
-Figure 13: This is a schematic of the glove circuits. 
+Figure 14: This is a schematic of the glove circuits. 
 
 ![Modification Main Car Schematic](Screenshot 2025-07-15 at 11.22.22 AM.jpeg)
-Figure 14: This is a schematic of the main car with the additional two sensors and four LED modifications
+Figure 15: This is a schematic of the main car with the additional two sensors and four LED modifications
 
 # Bill of Materials
 <!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.

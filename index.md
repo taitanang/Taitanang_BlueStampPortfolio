@@ -24,10 +24,12 @@ I had many issues trying to get the ultrasonic sensor to work properly. Initiall
 Demo Night is coming up soon, so I will start preparing and practicing for my presentation, where I will demonstrate my project and how it works.
 
 ![Ultrasonic sensor case](Screenshot 2025-07-18 at 10.27.50 AM.jpeg)
-Figure 1: This is the ultrasonic sensor case in CAD. I designed a removable back to be able to easily slide the sensor in and out. 
+![Sensor case drawing](Screenshot 2025-07-18 at 11.50.39 AM.jpeg)
+Figure 1: This is the ultrasonic sensor case in CAD and the design drawing. I designed a removable back to be able to easily slide the sensor in and out. 
 
 ![Car casing CAD Model](Screenshot 2025-07-18 at 10.20.00 AM.jpeg)
-Figure 2: The CAD model of my car casing. I had to split it up into four parts because it was too big for the 3D printer. 
+![car casing drawing](Screenshot 2025-07-18 at 11.51.46 AM.jpeg)
+Figure 2: The CAD model of my car casing with the design drawing. I had to split it up into four parts because it was too big for the 3D printer. 
 
 ### How an Ultrasonic Sensor Works
 

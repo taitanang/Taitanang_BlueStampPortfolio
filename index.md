@@ -165,10 +165,10 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 
 # Other Resources/Examples
-<!-- One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
+- [Overall tutorial](https://marobotic.com/2023/12/08/arduino-based-hand-gesture-control-robot/)
 - [Arduino to Motor Driver](https://www.youtube.com/watch?v=Ey4xoG970Go)
-- [Bluetooth Setup](https://www.youtube.com/watch?v=I2qFXSe0W3w)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/) -->
+- [Bluetooth setup](https://www.youtube.com/watch?v=I2qFXSe0W3w)
+- [Ultrasonic sensor tutorial](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
 
 # Starter Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UMIgmopNEKk?si=oT5W1rL70Gnku_Bd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

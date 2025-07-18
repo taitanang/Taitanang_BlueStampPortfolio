@@ -152,8 +152,14 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Robot Motor and Chassis | The base of the car, including the motors and wheels | $26.54 | <a href="https://www.amazon.com/Robot-Chassis-Encoder-Education-Electronic/dp/B08LDWNWFH?gQT=1"> Link </a> |
+| Arduino Uno | The 'brains' of the car, controls motor driver via HC-05 data | $27.60 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/?th=1"> Link </a> |
+| L298N motor driver | Controlls wheels | $2.50 | <a href="https://www.amazon.com/Controller-H-Bridge-Stepper-Control-Mega2560/dp/B07WS89781?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&gQT=2&th=1"> Link </a> |
+| HC-05 (2x) | Allows for bluetooth connection between the car and the glove | $15.90 | <a href="https://www.amazon.com/Bluetooth-Converter-Wireless-Transceiver-Communication/dp/B08Z3J9Y8T/ref=asc_df_B08Z3J9Y8T?mcid=4a30dcb31db03200a4dacaa90c980433&hvocijid=8599875552977287945-B08Z3J9Y8T-&hvexpln=73&tag=hyprod-20&linkCode=df0&hvadid=721245378154&hvpos=&hvnetw=g&hvrand=8599875552977287945&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032178&hvtargid=pla-2281435178058&psc=1"> Link </a> |
+| Arduino Nano | Takes accelerometer data and sends it to the car via HC-05 | $24.99 | <a href="https://www.amazon.com/Arduino-A000005-ARDUINO-Nano/dp/B0097AU5OU"> Link </a> |
+| MPU 6050 | Measures tilt of the glove | $6.99 | <a href="https://www.amazon.com/HiLetgo-MPU-6050-Accelerometer-Gyroscope-Converter/dp/B01DK83ZYQ?th=1"> Link </a> |
+| Breadboard (2x) | Connects components together via jumper wires | $3.50 | <a href="https://www.amazon.com/Pcs-MCIGICM-Points-Solderless-Breadboard/dp/B07PCJP9DY/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.uMUuxM7TjrT4NHGBW155b6xNsnypcVAt2OV_S_HNFIDKaBIHI28NBIcqF1fUVd9zpDuc6vmtvPcs-t0XYbd7Qm1dK94g0OetOzfCYUkvPqAV8NoUui7Hzhq7yRcwBCbEC0OyqlXnqZ_kq8PFqBb6tndOlmU1oWR54n7-Qx7aBOHFL4dyERDhxEg6q1Bz2mMpQHVwvJi4BBgb0Qu08hyxOO66lOunRWficHVJM8ZM46w.dejGS9Mc9vNvxv2ho9vPoNOg0vwSlLXw8ipHMP8H2m0&dib_tag=se&keywords=half+size+breadboard&qid=1752876774&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"> Link </a> |
+| Jumper wires | Connects components | $6.98 | <a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ref=asc_df_B01EV70C78/?tag=hyprod-20&linkCode=df0&hvadid=721245378154&hvpos=&hvnetw=g&hvrand=11066505077763342490&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032178&hvtargid=pla-2281435178538&psc=1&mcid=6d8a7ca3c39a3ad4877ede949dc655a6&hvocijid=11066505077763342490-B01EV70C78-&hvexpln=73&tag=hyprod-20&linkCode=df0&hvadid=721245378154&hvpos=&hvnetw=g&hvrand=11066505077763342490&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032178&hvtargid=pla-2281435178538&psc=1"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 # Other Resources/Examples

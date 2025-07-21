@@ -44,7 +44,7 @@ An ultrasonic sensor has two specialized pins, in addition to the power and grou
 
 ### Description:
 
-For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis and parts for a case around the robot. Refer to figures 4-7 for images. The boxes are to keep the circuit boards from sliding around on the car, and include holes to screw into the chassis. The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them together, I used a soldering iron to melt the plastic from one part onto another. 
+For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis, as well as parts for a case around the robot. I went through a few iterations of the Uno box to get it to work well. At first, I had really tall walls, but I realized they weren't necessary, and it would take longer to print. I also changed the orientation by 90 degrees, as the ports would get blocked by the case, and made the screw holes larger. Refer to figures 4-7 for images. The boxes are to keep the circuit boards from sliding around on the car, and include holes to screw into the chassis.  The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them together, I used a soldering iron to melt the plastic from one part onto another. 
 
 ### Challenges:
 

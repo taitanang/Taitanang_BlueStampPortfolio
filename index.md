@@ -143,7 +143,7 @@ An L298N motor driver has two of these H-bridge circuits to allow the DC motors 
 ![mpu-6050](MPU6050 Module.jpg)
 Figure 13: The MPU-6050
 
-
+An MPU-6050 has a MEMS accelerometer and a MEMS gyroscope, which allow the module to measure acceleration, velocity, tilt, and orientation. The accelerometer uses inertia to detect acceleration without a starting reference point. When the accelerometer accelerates, a central mass attached to a spring system will lag behind due to inertia, and the springs either stretch or compress, which can be recorded as acceleration. The MEMS gyroscope has a proof mass of four parts that is connected with springs to a central structure. When tilted, different parts will move due to the Coriolis effect, and calculated as tilt. 
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)

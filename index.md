@@ -11,6 +11,8 @@ The project that I have been working on this summer is the Gesture-Controlled Ro
   
 # Modification Milestone
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZioR411seCw?si=Sqv1up9uiOw_xGNH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Description:
 
 After completing the base project for the Gesture-Controlled Robot, I started adding modifications to it. I began by mounting two ultrasonic sensors on the front and rear of the car. To do this, I designed a case for them in Fusion 360 (Figure 1). I was able to code the sensors to detect objects at a certain distance away, and automatically stop the car if it was going to crash into them. Next, I designed a cover for the car to both hide away all the wires and electronics and make the car look more realistic (Figure 2). This cover can be easily removed for easy access to the inside. To slot it onto the base, I was originally going to use a tab that could fit into an indent on the car casing. However, I went with a screw slit in the final design. This allows the screws to be adjusted along the slit, ensuring a good fit onto the base. Finally, I added four LEDs to the car, two as headlights and two as brake lights, incorporating holes in the car cover to allow them to be visible. 
@@ -129,22 +131,29 @@ A challenge I had was pairing the two Bluetooth Modules together, because they w
 
 After this milestone, I will work on the software portion of the project, utilizing the Bluetooth connection to be able to steer the robot. 
 
-### How H-bridges Work
+### How an H-Bridge Works
 
 ![h-bridge](H-bridge.png)
 Figure 12: An H-bridge circuit
 
 An L298N motor driver has two of these H-bridge circuits to allow the DC motors to turn forward and backward. This works because by switching the polarity on a DC motor, it changes the direction the motor spins. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. Although a motor driver only has two H-bridges, I used one motor driver to control all four wheels by connecting the two motors on each side to one H-bridge. This works because I don't need motors on the same side to run in opposite directions.
 
+### How an MPU-6050 Accelerometer Works
+
+![mpu-6050](MPU6050 Module.jpg)
+Figure 13: The MPU-6050
+
+
+
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-Figure 13: Schematic of the Gesture Controlled Robot car.
+Figure 14: Schematic of the Gesture Controlled Robot car.
 
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
-Figure 14: This is a schematic of the glove circuits. 
+Figure 15: This is a schematic of the glove circuits. 
 
 ![Modification Main Car Schematic](Screenshot 2025-07-15 at 11.22.22 AM.jpeg)
-Figure 15: This is a schematic of the main car with the additional two sensors and four LED modifications
+Figure 16: This is a schematic of the main car with the additional two sensors and four LED modifications
 
 # Bill of Materials
 <!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.

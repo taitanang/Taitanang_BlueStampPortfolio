@@ -1,5 +1,5 @@
 # Gesture Controlled Robot
-The project that I have been working on this summer is the Gesture-Controlled Robot. By tilting the glove on your hand, the car moves accordingly. One modification I added was two sensors that are able to detect objects and automatically stop the vehicle to prevent it from crashing into them. 
+The project that I have been working on this summer is the Gesture-Controlled Robot. By tilting the glove on your hand, the car is able to be driven. I added two sensors that are able to detect objects and automatically stop the vehicle to prevent it from crashing. I also designed some parts in CAD and included a few LEDs to make it look more like a car.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|

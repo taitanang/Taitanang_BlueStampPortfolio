@@ -8,6 +8,9 @@ The project that I have been working on this summer is the Gesture-Controlled Ro
 | Tai T | Leigh High School | Mechanical Engineering | Incoming Sophomore
 
 ![Headstone Image](Screenshot 2025-06-20 at 14.40.58.png)
+
+![Project](IMG_4193.jpeg)
+Figure 1: Image of my completed project
   
 # Modification Milestone
 
@@ -15,7 +18,7 @@ The project that I have been working on this summer is the Gesture-Controlled Ro
 
 ### Description:
 
-After completing the base project for the Gesture-Controlled Robot, I started adding modifications to it. I began by mounting two ultrasonic sensors on the front and rear of the car. To do this, I designed a case for them in Fusion 360 (Figure 1). I was able to code the sensors to detect objects at a certain distance away, and automatically stop the car if it was going to crash into them. Next, I designed a cover for the car to both hide away all the wires and electronics and make the car look more realistic (Figure 2). This cover can be easily removed for easy access to the inside. To slot it onto the base, I was originally going to use a tab that could fit into an indent on the car casing. However, I went with a screw slit in the final design. This allows the screws to be adjusted along the slit, ensuring a good fit onto the base. Finally, I added four LEDs to the car, two as headlights and two as brake lights, incorporating holes in the car cover to allow them to be visible. 
+After completing the base project for the Gesture-Controlled Robot, I started adding modifications to it. I began by mounting two ultrasonic sensors on the front and rear of the car. To do this, I designed a case for them in Fusion 360 (Figure 2). I was able to code the sensors to detect objects at a certain distance away, and automatically stop the car if it was going to crash into them. Next, I designed a cover for the car to both hide away all the wires and electronics and make the car look more realistic (Figure 3). This cover can be easily removed for easy access to the inside. To slot it onto the base, I was originally going to use a tab that could fit into an indent on the car casing. However, I went with a screw slit in the final design. This allows the screws to be adjusted along the slit, ensuring a good fit onto the base. Finally, I added four LEDs to the car, two as headlights and two as brake lights, incorporating holes in the car cover to allow them to be visible. 
 
 ### Challenges:
 
@@ -27,16 +30,16 @@ Demo Night is coming up soon, so I will start preparing and practicing for my pr
 
 ![Ultrasonic sensor case](Screenshot 2025-07-18 at 10.27.50 AM.jpeg)
 ![Sensor case drawing](Screenshot 2025-07-18 at 11.50.39 AM.jpeg)
-Figure 1: This is the ultrasonic sensor case in CAD and the design drawing. I designed a removable back to be able to easily slide the sensor in and out. 
+Figure 2: This is the ultrasonic sensor case in CAD and the design drawing. I designed a removable back to be able to easily slide the sensor in and out. 
 
 ![Car casing CAD Model](Screenshot 2025-07-18 at 10.20.00 AM.jpeg)
 ![car casing drawing](Screenshot 2025-07-18 at 11.51.46 AM.jpeg)
-Figure 2: The CAD model of my car casing with the design drawing. I had to split it up into four parts because it was too big for the 3D printer. 
+Figure 3: The CAD model of my car casing with the design drawing. I had to split it up into four parts because it was too big for the 3D printer. 
 
 ### How an Ultrasonic Sensor Works
 
 ![Ultrasonic sensor diagram](Ultrasonic-Sensor-Diagram.jpeg)
-Figure 3: Diagram of how an ultrasonic sensor works
+Figure 4: Diagram of how an ultrasonic sensor works
 
 An ultrasonic sensor has two specialized pins, in addition to the power and ground pins, which work together to measure distance. The trigger pin creates an ultrasonic burst when coded high for 10 microseconds. As soon as the burst gets sent, the echo pin is set to high until it receives the burst back (the burst would have hit an object and bounced back). By recording the amount of time the echo pin is high in a variable and multiplying that by 0.034/2 (0.034 is the speed of sound in centimeters per microsecond, and it is divided by two because the burst has to travel there and back), the distance to an object can be recorded.
 
@@ -46,7 +49,7 @@ An ultrasonic sensor has two specialized pins, in addition to the power and grou
 
 ### Description:
 
-For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis, as well as parts for a case around the robot. I went through a few iterations of the Uno box to get it to work well. At first, I had really tall walls, but I realized they weren't necessary, and it would take longer to print. I also changed the orientation by 90 degrees, as the ports would get blocked by the case, and made the screw holes larger. Refer to figures 4-7 for images. The boxes are to keep the circuit boards from sliding around on the car, and include holes to screw into the chassis.  The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them together, I used a soldering iron to melt the plastic from one part onto another. 
+For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis, as well as parts for a case around the robot. I went through a few iterations of the Uno box to get it to work well. At first, I had really tall walls, but I realized they weren't necessary, and it would take longer to print. I also changed the orientation by 90 degrees, as the ports would get blocked by the case, and made the screw holes larger. Refer to figures 5-7 for images. The boxes are to keep the circuit boards from sliding around on the car, and include holes to screw into the chassis.  The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them together, I used a soldering iron to melt the plastic from one part onto another (Figures 8-10).
 
 ### Challenges:
 
@@ -64,11 +67,11 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What you hope to learn in the future after everything you've learned at BSE -->
 
 ![First draft UNO CAD Model](image0.jpeg)
-Figure 4: First draft of the Arduino Uno CAD Model
+Figure 5: First draft of the Arduino Uno CAD Model
 
 ![UNO CAD Model](Screenshot 2025-06-25 at 2.39.20 PM.jpeg)
 ![UNO CAD Drawing](Screenshot 2025-06-25 at 3.49.26 PM.jpeg)
-Figure 5: Final CAD model of the Arduino Uno case and design drawing
+Figure 6: Final CAD model of the Arduino Uno case and design drawing
 
 Iterations:
  - lowered wall for easier access
@@ -77,17 +80,17 @@ Iterations:
 
 ![L298N Motor Driver CAD Model](Screenshot 2025-06-25 at 2.39.52 PM.jpeg)
 ![L298N Motor Driver CAD Drawing](Screenshot 2025-06-25 at 3.49.13 PM.jpeg)
-Figure 6: CAD model of the L298N Motor Driver and design drawing
+Figure 7: CAD model of the L298N Motor Driver and design drawing
 
 ![Front casing CAD model](Screenshot 2025-07-14 at 8.47.00 AM.jpeg)
-Figure 7: CAD model of the front casing 
+Figure 8: CAD model of the front casing 
 
 ![Back casing CAD model 1](Screenshot 2025-07-14 at 8.47.10 AM.jpeg)
 ![Back casing CAD model 2](Screenshot 2025-07-14 at 8.47.29 AM.jpeg)
-Figure 8: CAD models of the back casing, split into two parts for battery pack space
+Figure 9: CAD models of the back casing, split into two parts for battery pack space
 
 ![casing drawing](Screenshot 2025-07-18 at 12.07.01 PM.jpeg)
-Figure 9: Design drawing for the front and back casing 
+Figure 10: Design drawing for the front and back casing 
 
 # Second Milestone
 
@@ -95,7 +98,7 @@ Figure 9: Design drawing for the front and back casing
 
 ### Description:
 
-Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 10 for a simplified code diagram.
+Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 11 for a simplified code diagram.
 
 ### Challenges:
 
@@ -106,12 +109,12 @@ A challenge I had was getting the Bluetooth modules to send and receive data. In
 I will start working on cleaning up all the wires, making the glove wearable, and adding finishing touches to the robot. 
 
 ![Flowchart](Screenshot 2025-06-23 at 10.16.16.png)
-Figure 10: Flowchart of the robot's movement code
+Figure 11: Flowchart of the robot's movement code
 
 ### How an HC-05 Bluetooth Module works
 
 ![hc-05 diagram](1_HC-05_Bluetooth_Module.jpg)
-Figure 11: The HC-05 Bluetooth Module
+Figure 12: The HC-05 Bluetooth Module
 
 An HC-05 module uses wireless serial communication to send and receive data to other Bluetooth devices, such as phones, computers, or other HC-05 modules. The HC-05 has two specialized pins that allow it to communicate. The TX pin on the module transmits data, while the RX pin receives data. In my project, I used two modules, one connected to the Arduino Nano on the glove and one connected to the Uno on the car, to allow the two microcontrollers to communicate. By using AT commands, the modules can be set in either 'master' or 'slave' mode, and can be configured to attempt to connect only to the other one. 
 
@@ -121,7 +124,7 @@ An HC-05 module uses wireless serial communication to send and receive data to o
 
 ### Description:
 
-My project is the Gesture Controlled Robot. For the first milestone, I completed the hardware for both the car and the glove. I soldered wires to the four motors, allowing them to connect to the L298N motor driver. Refer to the appendix section for how the motor driver works. This component is wired to the Arduino Uno, which is the 'brain' of the robot. By uploading code to it, the Arduino can tell the motor driver whether to spin forward or backward and at what speed (refer to Milestone 1 code in the appendix section). A battery case is also connected, with an on/off switch, for power. Finally, I added a Bluetooth Module to be able to communicate with the glove. Figure 1 in the schematics section shows the setup. The glove hardware is much simpler, only including an Arduino Nano, the second Bluetooth Module, and an accelerometer. The accelerometer will be used to measure the tilt of the glove. The glove hardware can be seen in Figure 2. 
+My project is the Gesture Controlled Robot. For the first milestone, I completed the hardware for both the car and the glove. I soldered wires to the four motors, allowing them to connect to the L298N motor driver. Refer to the appendix section for how the motor driver works. This component is wired to the Arduino Uno, which is the 'brain' of the robot. By uploading code to it, the Arduino can tell the motor driver whether to spin forward or backward and at what speed (refer to Milestone 1 code in the appendix section). A battery case is also connected, with an on/off switch, for power. Finally, I added a Bluetooth Module to be able to communicate with the glove. Figure 15 in the schematics section shows the setup. The glove hardware is much simpler, only including an Arduino Nano, the second Bluetooth Module, and an accelerometer. The accelerometer will be used to measure the tilt of the glove. The glove hardware can be seen in Figure 16. 
 
 ### Challenges:
 
@@ -134,26 +137,26 @@ After this milestone, I will work on the software portion of the project, utiliz
 ### How an H-Bridge Works
 
 ![h-bridge](H-bridge.png)
-Figure 12: An H-bridge circuit
+Figure 13: An H-bridge circuit
 
 An L298N motor driver has two of these H-bridge circuits to allow the DC motors to turn forward and backward. This works because by switching the polarity on a DC motor, it changes the direction the motor spins. An H-bridge works by using four switches to control the current direction. For example, if switches 1 and 4 are closed, the current will run through from left to right. And if switches 2 and 3 are closed, the current runs in the opposite direction. Although a motor driver only has two H-bridges, I used one motor driver to control all four wheels by connecting the two motors on each side to one H-bridge. This works because I don't need motors on the same side to run in opposite directions.
 
 ### How an MPU-6050 Accelerometer Works
 
 ![mpu-6050](MPU6050 Module.jpg)
-Figure 13: The MPU-6050
+Figure 14: The MPU-6050
 
 An MPU-6050 has a MEMS accelerometer and a MEMS gyroscope, which allow the module to measure acceleration, velocity, tilt, and orientation. The accelerometer uses inertia to detect acceleration without a starting reference point. When the accelerometer accelerates, a central mass attached to a spring system will lag behind due to inertia, and the springs either stretch or compress, which can be recorded as acceleration. The MEMS gyroscope has a proof mass of four parts that is connected with springs to a central structure. When tilted, different parts will move due to the Coriolis effect, and calculated as tilt. 
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
-Figure 14: Schematic of the Gesture Controlled Robot car.
+Figure 15: Schematic of the Gesture Controlled Robot car.
 
 ![Glove Schematic](Screenshot 2025-06-20 at 14.37.05.png)
-Figure 15: This is a schematic of the glove circuits. 
+Figure 16: This is a schematic of the glove circuits. 
 
 ![Modification Main Car Schematic](Screenshot 2025-07-15 at 11.22.22 AM.jpeg)
-Figure 16: This is a schematic of the main car with the additional two sensors and four LED modifications
+Figure 17: This is a schematic of the main car with the additional two sensors and four LED modifications
 
 # Bill of Materials
 <!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.

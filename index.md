@@ -1,8 +1,6 @@
 # Gesture Controlled Robot
 The project that I have been working on this summer is the Gesture-Controlled Robot. By tilting the glove on your hand, the car moves accordingly. One modification I added was two sensors that are able to detect objects and stop the car automatically to prevent it from crashing into them. 
 
-<!-- You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions: -->
-
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Tai T | Leigh High School | Mechanical Engineering | Incoming Sophomore
@@ -58,13 +56,6 @@ One challenge I faced during this milestone was that two of the motors weren't w
 ### Next steps:
 
 This milestone means that I have finished the base project, and I will now start implementing some modifications. I will implement two sensors that will be able to detect objects. With some additional code, the robot will be able to stop if something is in its path automatically. 
-
-<!--
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE -->
 
 ![First draft UNO CAD Model](image0.jpeg)
 Figure 5: First draft of the Arduino Uno CAD Model
@@ -159,8 +150,6 @@ Figure 16: This is a schematic of the glove circuits.
 Figure 17: This is a schematic of the main car with the additional two sensors and four LED modifications
 
 # Bill of Materials
-<!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. -->
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|

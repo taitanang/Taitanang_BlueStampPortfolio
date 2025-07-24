@@ -1,5 +1,5 @@
 # Gesture Controlled Robot
-The project that I have been working on this summer is the Gesture-Controlled Robot. By tilting the glove on your hand, the car moves accordingly. One modification I added was two sensors that are able to detect objects and stop the car automatically to prevent it from crashing into them. 
+The project that I have been working on this summer is the Gesture-Controlled Robot. By tilting the glove on your hand, the car moves accordingly. One modification I added was two sensors that are able to detect objects and automatically stop the vehicle to prevent it from crashing into them. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -16,7 +16,7 @@ Figure 1: Image of my completed project
 
 ### Description:
 
-After completing the base project for the Gesture-Controlled Robot, I started adding modifications to it. I began by mounting two ultrasonic sensors on the front and rear of the car. To do this, I designed a case for them in Fusion 360 (Figure 2). I was able to code the sensors to detect objects at a certain distance away, and automatically stop the car if it was going to crash into them. Next, I designed a cover for the car to both hide away all the wires and electronics and make the car look more realistic (Figure 3). This cover can be easily removed for easy access to the inside. To slot it onto the base, I was originally going to use a tab that could fit into an indent on the car casing. However, I went with a screw slit in the final design. This allows the screws to be adjusted along the slit, ensuring a good fit onto the base. Finally, I added four LEDs to the car, two as headlights and two as brake lights, incorporating holes in the car cover to allow them to be visible. 
+After completing the base project for the Gesture-Controlled Robot, I started adding modifications to it. I began by mounting two ultrasonic sensors on the front and rear of the car. To do this, I designed a case for them in Fusion 360 (Figure 2). I was able to code the sensors to detect objects at a certain distance away, and automatically stop the car if it was going to crash into them. Next, I designed a cover for the vehicle to both hide away all the wires and electronics and make the car look more realistic (Figure 3). This cover can be easily removed for easy access to the inside. To slot it onto the base, I was originally going to use a tab that could fit into an indent on the car casing. However, I went with a screw slit in the final design. This allows the screws to be adjusted along the slit, ensuring a good fit onto the base. Finally, I added four LEDs to the car, two as headlights and two as brake lights, incorporating holes in the car cover to allow them to be visible. The hardware schematics, including the modifications, are shown in Figure 17.
 
 ### Challenges:
 
@@ -28,7 +28,7 @@ Demo Night is coming up soon, so I will start preparing and practicing for my pr
 
 ![Ultrasonic sensor case](Screenshot 2025-07-18 at 10.27.50 AM.jpeg)
 ![Sensor case drawing](Screenshot 2025-07-18 at 11.50.39 AM.jpeg)
-Figure 2: This is the ultrasonic sensor case in CAD and the design drawing. I designed a removable back to be able to easily slide the sensor in and out. 
+Figure 2: This is the ultrasonic sensor case in CAD and the design drawing. I designed a removable back to be able to slide the sensor in and out easily. 
 
 ![Car casing CAD Model](Screenshot 2025-07-18 at 10.20.00 AM.jpeg)
 ![car casing drawing](Screenshot 2025-07-18 at 11.51.46 AM.jpeg)
@@ -47,7 +47,7 @@ An ultrasonic sensor has two specialized pins, in addition to the power and grou
 
 ### Description:
 
-For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis, as well as parts for a case around the robot. I went through a few iterations of the Uno box to get it to work well. At first, I had really tall walls, but I realized they weren't necessary, and it would take longer to print. I also changed the orientation by 90 degrees, as the ports would get blocked by the case, and made the screw holes larger. Refer to figures 5-7 for images. The boxes are to keep the circuit boards from sliding around on the car, and include holes to screw into the chassis.  The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them together, I used a soldering iron to melt the plastic from one part onto another (Figures 8-10).
+For my third milestone, I designed a few custom parts for my robot using a CAD program. These include boxes to attach the Arduino Uno and the motor driver to the chassis, as well as parts for a case around the robot. I went through a few iterations of the Uno box to get it to work well. At first, I had tall walls, but I realized they weren't necessary, and it would take longer to print. I also changed the orientation by 90 degrees, as the ports would get blocked by the case, and made the screw holes larger. Refer to figures 5-7 for images. The boxes are to keep the circuit boards from sliding around on the car and include holes to screw into the chassis.  The case helps contain all the parts and provides a clean border. I had to print the case in three parts to fit onto the 3D printer, so to connect them, I used a soldering iron to melt the plastic from one part onto another (Figures 8-10).
 
 ### Challenges:
 
@@ -89,7 +89,7 @@ Figure 10: Design drawing for the front and back casing
 
 ### Description:
 
-Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove ). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 11 for a simplified code diagram.
+Since the first milestone, I have been able to translate the movement of the glove into the wheels turning. To do this, I got the accelerometer to record its roll (x-axis), pitch (y-axis), and yaw (z-axis) and convert it into directions for the motors to follow (f for forward, b for backward). I then used the Bluetooth modules to send the directions over to the car (code documented in the Appendix, Milestone 2 Code, Glove). Finally, I wrote more code to take those directions and move the motors accordingly (Appendix, Milestone 2, Car code). Refer to Figure 11 for a simplified code diagram.
 
 ### Challenges:
 
@@ -137,7 +137,7 @@ An L298N motor driver has two of these H-bridge circuits to allow the DC motors 
 ![mpu-6050](MPU6050 Module.jpg)
 Figure 14: The MPU-6050
 
-An MPU-6050 has a MEMS accelerometer and a MEMS gyroscope, which allow the module to measure acceleration, velocity, tilt, and orientation. The accelerometer uses inertia to detect acceleration without a starting reference point. When the accelerometer accelerates, a central mass attached to a spring system will lag behind due to inertia, and the springs either stretch or compress, which can be recorded as acceleration. The MEMS gyroscope has a proof mass of four parts that is connected with springs to a central structure. When tilted, different parts will move due to the Coriolis effect, and calculated as tilt. 
+An MPU-6050 has a MEMS accelerometer and a MEMS gyroscope, which allow the module to measure acceleration, velocity, tilt, and orientation. The accelerometer uses inertia to detect acceleration without a starting reference point. When the accelerometer accelerates, a central mass attached to a spring system will lag due to inertia, and the springs either stretch or compress, which can be recorded as acceleration. The MEMS gyroscope has a proof mass of four parts that is connected with springs to a central structure. When tilted, different parts will move due to the Coriolis effect, and are calculated as tilt. 
 
 # Schematics 
 ![Main Car Schematic](Screenshot 2025-06-20 at 14.08.30.png)
